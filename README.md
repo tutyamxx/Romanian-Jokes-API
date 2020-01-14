@@ -5,6 +5,6 @@
 # How to run it
 * Clone this repo
 * Open the containing folder
-* Type 'npm start'
+* Type **npm start**
 * Open this URL: http://localhost:3000/romanianjoke
 * ?????????
