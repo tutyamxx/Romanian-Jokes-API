@@ -8,3 +8,7 @@
 * Type **npm start**
 * Open this URL: http://localhost:3000/romanianjoke
 * ?????????
+
+# See example
+
+![Example result](https://github.com/tutyamxx/Romanian-Jokes-API/blob/master/randomjokeresult.PNG)
