@@ -1,5 +1,5 @@
 # Romanian Jokes API 👌😹 
- * Just a dumb API which returns dumb romanian jokes
+ * Just a dumb API which returns dumb romanian jokes made when I died of boredom
  * I might add new things in the future
 
 # How to run it
