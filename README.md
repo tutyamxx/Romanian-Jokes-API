@@ -1,4 +1,4 @@
-# 🇹🇩 Romanian Jokes API 👌😹 
+# Romanian Jokes API 👌😹 
  * Just a dumb API which returns dumb romanian jokes
  * I might add new things in the future
 
