@@ -6,8 +6,8 @@
 # How to run it
 * Clone this repo
 * Open the containing folder
-* Type **npm start**
-* Open this URL: http://localhost:3000/romanianjoke
+* Type **npm i & npm start**
+* Open this URL: http://localhost:3000/api/romanianjoke
 * ?????????
 
 # See example
