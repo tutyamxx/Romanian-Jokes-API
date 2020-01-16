@@ -20,6 +20,11 @@ Endpoints | Result | URL Usage Example |
 /api/romanianjokes/filter/:joketype | Get all the jokes filtered by a joke type | https://{url}/api/romanianjokes/filter/seci |
 /api/romanianjokes/filter/:joketype/random | Get a random joke filtered by a joke type | https://{url}/api/romanianjokes/filter/seci/random |
 
+# For consuming
+
+* Rule is simple, jokes are returned in JSON format
+* To implement it in your bot, website, widget and add formatting, simply search by the new line in string and replace it with your formatting. "\n"
+
 # See example
 
 ![Example result](https://github.com/tutyamxx/Romanian-Jokes-API/blob/master/randomjokeresult.PNG)
