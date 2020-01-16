@@ -25,6 +25,13 @@ router.get("/romanianjokes", (req, res, next) =>
     return res.status(200).json(GetRandomJoke);
 });
 
+// --| Get all the jokes from the jokes file
+router.get("/romanianjokes/all", (req, res, next) =>
+{
+    // --| Return all the jokes as a JSON result
+    return res.status(200).json(RomanianJokesFile);
+});
+
 // --| Get all the jokes filtered by joke type
 router.get("/romanianjokes/filter/:joketype", (req, res, next) =>
 {
