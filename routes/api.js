@@ -40,7 +40,7 @@ router.get("/romanianjokes/categories", (req, res, next) =>
     });
 
     // --| Return the joke types found by filtering as JSON result
-    return res.status(200).json(JokeTypes);
+    return res.status(200).json({ categories: JokeTypes });
 });
 
 // --| Get all the jokes from the jokes file
