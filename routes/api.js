@@ -40,7 +40,7 @@ router.get("/romanianjokes/filter/:joketype", (req, res, next) =>
         return res.status(404).json({ message: "This joke type could not be found in the jokes list" });
     }
 
-    // // --| Return the jokes filtered by type as JSON result
+    // --| Return the jokes filtered by type as JSON result
     return res.status(200).json(GetJokeType);
 });
 
