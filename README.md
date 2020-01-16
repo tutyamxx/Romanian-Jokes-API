@@ -22,7 +22,7 @@ Endpoints | Result | URL Usage Example |
 /api/romanianjokes | Get a random romanian joke | <a href="https://romanian-jokes-api.herokuapp.com/romanianjokes">Click Here!</a> |
 /api/romanianjokes/all | Get all the jokes | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/all">Click Here!</a> |
 /api/romanianjokes/categories | Get all the joke types so you can use them in filtering | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/categories">Click Here!</a> |
-/api/romanianjokes/:id | Get a specific romanian joke | <a href="<a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/30">Click Here!</a> |
+/api/romanianjokes/:id | Get a specific romanian joke | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/30">Click Here!</a> |
 /api/romanianjokes/filter/:joketype | Get all the jokes filtered by a joke type | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/filter/seci">Click Here!</a> |
 /api/romanianjokes/filter/:joketype/random | Get a random joke filtered by a joke type | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/filter/seci/random">Click Here!</a> |
 
