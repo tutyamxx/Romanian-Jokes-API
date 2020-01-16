@@ -13,12 +13,12 @@
 
 Endpoints | Result | URL Usage Example |
 ---------- | --- | ------------ |
-/api/ | Test if the API runs | {url}/api/ |
-/api/romanianjokes | Get a random romanian joke | {url}/api/romanianjokes |
-/api/romanianjokes/all | Get all the jokes | {url}/api/romanianjokes/all |
-/api/romanianjokes/:id | Get a specific romanian joke | {url}/api/romanianjokes/30 |
-/api/romanianjokes/filter/:joketype | Get all the jokes filtered by a joke type | {url}/api/romanianjokes/filter/seci |
-/api/romanianjokes/filter/:joketype/random | Get a random joke filtered by a joke type | {url}/api/romanianjokes/filter/seci/random |
+/api/ | Test if the API runs | https://{url}/api/ |
+/api/romanianjokes | Get a random romanian joke | https://{url}/api/romanianjokes |
+/api/romanianjokes/all | Get all the jokes | https://{url}/api/romanianjokes/all |
+/api/romanianjokes/:id | Get a specific romanian joke | https://{url}/api/romanianjokes/30 |
+/api/romanianjokes/filter/:joketype | Get all the jokes filtered by a joke type | https://{url}/api/romanianjokes/filter/seci |
+/api/romanianjokes/filter/:joketype/random | Get a random joke filtered by a joke type | https://{url}/api/romanianjokes/filter/seci/random |
 
 # See example
 
