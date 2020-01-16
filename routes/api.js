@@ -44,6 +44,24 @@ router.get("/romanianjokes/filter/:joketype", (req, res, next) =>
     return res.status(200).json(GetJokeType);
 });
 
+router.get("/romanianjokes/filter/:joketype/random", (req, res, next) =>
+{
+    // --| Get the joke type specified in the parameter
+    const szGetJokeType = req.params.joketype;
+
+    // --| Get the joke type from our jokes file
+    const GetJokeType = RomanianJokesFile.filter(joke => joke.joketype === szGetJokeType);
+
+    // --| Check if joke type exists in our joke file
+    if(!Object.keys(GetJokeType).length)
+    {
+        return res.status(404).json({ message: "This joke type could not be found in the jokes list" });
+    }
+
+    // --| Return a random joke filtered by an existing joke type
+    return res.status(200).json(GetJokeType[Math.floor(Math.random() * GetJokeType.length)]);
+});
+
 // --| Get a specific joke by id
 router.get("/romanianjokes/:id", (req, res, next) =>
 {
