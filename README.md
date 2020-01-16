@@ -5,9 +5,8 @@
 # Romanian Jokes API 👌😹 
  * Just a dumb API which returns dumb romanian jokes made when I died of boredom
  * I need to add more dumb jokes and new things in the future
- * I might host it somewhere someday.
 
-# How to run it
+# How to run it locally
 * Clone this repo
 * Open the containing folder
 * Type **npm i && npm start**
@@ -15,15 +14,17 @@
 
 # Usage
 
+* Live API URL hosted on heroku ➡️ https://romanian-jokes-api.herokuapp.com/api/
+
 Endpoints | Result | URL Usage Example |
 ---------- | --- | ------------ |
-/api/ | Test if the API runs | https://{url}/api/ |
-/api/romanianjokes | Get a random romanian joke | https://{url}/api/romanianjokes |
-/api/romanianjokes/all | Get all the jokes | https://{url}/api/romanianjokes/all |
-/api/romanianjokes/categories | Get all the joke types so you can use them in filtering | https://{url}/api/romanianjokes/categories |
-/api/romanianjokes/:id | Get a specific romanian joke | https://{url}/api/romanianjokes/30 |
-/api/romanianjokes/filter/:joketype | Get all the jokes filtered by a joke type | https://{url}/api/romanianjokes/filter/seci |
-/api/romanianjokes/filter/:joketype/random | Get a random joke filtered by a joke type | https://{url}/api/romanianjokes/filter/seci/random |
+/api/ | Test if the API runs | <a href="https://romanian-jokes-api.herokuapp.com/api/">Click Here!</a> |
+/api/romanianjokes | Get a random romanian joke | <a href="https://romanian-jokes-api.herokuapp.com/romanianjokes">Click Here!</a> |
+/api/romanianjokes/all | Get all the jokes | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/all">Click Here!</a> |
+/api/romanianjokes/categories | Get all the joke types so you can use them in filtering | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/categories">Click Here!</a> |
+/api/romanianjokes/:id | Get a specific romanian joke | <a href="<a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/30">Click Here!</a> |
+/api/romanianjokes/filter/:joketype | Get all the jokes filtered by a joke type | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/filter/seci">Click Here!</a> |
+/api/romanianjokes/filter/:joketype/random | Get a random joke filtered by a joke type | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/filter/seci/random">Click Here!</a> |
 
 # For consuming
 
