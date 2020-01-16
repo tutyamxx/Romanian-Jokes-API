@@ -23,8 +23,9 @@ Endpoints | Result | URL Usage Example |
 # For consuming
 
 * Rule is simple, jokes are returned in JSON format
-* To implement it in your bot, website, widget and add formatting, simply search by the new line in string and replace it with your formatting. "\n"
+* Long jokes tend to have new line separators ➡️ \\n
+* To implement it in your bot, website, widget and add formatting, simply search and replace the new line separators in string with your custom formatting.
 
-# See example
+# Some random API result example
 
 ![Example result](https://github.com/tutyamxx/Romanian-Jokes-API/blob/master/randomjokeresult.PNG)
