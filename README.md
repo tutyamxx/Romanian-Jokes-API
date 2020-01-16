@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/tutyamxx/Romanian-Jokes-API/master/joke.png" widht="100" height="100"><br/>
+</p>
+<br/><br/>
+
 # Romanian Jokes API 👌😹 
  * Just a dumb API which returns dumb romanian jokes made when I died of boredom
  * I need to add more dumb jokes and new things in the future
