@@ -6,7 +6,7 @@
 # How to run it
 * Clone this repo
 * Open the containing folder
-* Type **npm i & npm start**
+* Type **npm i && npm start**
 * Open the API in your browser http://localhost:3000/api/
 
 # Usage
