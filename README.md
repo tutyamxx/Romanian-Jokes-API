@@ -29,7 +29,7 @@ Endpoints | Result | URL Usage Example |
 # For consuming
 
 * Rule is simple, jokes are returned in JSON format
-* Long jokes tend to have new line separators ➡️ \\n
+* Long jokes tend to have new line separators for a paragraph in a new line ➡️ \\n
 * To implement it in your bot, website, widget and add formatting, simply search and replace the new line separators in string with your custom formatting.
 
 # Some random API result example
