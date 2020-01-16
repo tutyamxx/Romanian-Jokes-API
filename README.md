@@ -14,7 +14,7 @@
 
 # Usage
 
-* Live API URL hosted on heroku ➡️ https://romanian-jokes-api.herokuapp.com/api/
+* Live API URL hosted on heroku ➡️ https://romanian-jokes-api.herokuapp.com/api/romanianjokes
 
 Endpoints | Result | URL Usage Example |
 ---------- | --- | ------------ |
