@@ -15,7 +15,7 @@ Endpoints | Result | URL Usage Example |
 --- | --- | --- |
 /api/ | Test if the API runs | http://localhost:3000/api/ |
 /api/romanianjokes | Get a random romanian joke | http://localhost:3000/api/romanianjokes |
-/api/romanianjokes/:jokeid | Get a specific romanian joke | http://localhost:3000/api/romanianjokes/30 |
+/api/romanianjokes/:id | Get a specific romanian joke | http://localhost:3000/api/romanianjokes/30 |
 
 # See example
 
