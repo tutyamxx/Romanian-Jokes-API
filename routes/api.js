@@ -9,6 +9,7 @@ router.use((req, res, next) =>
 
 const RomanianJokesFile = require("../jokes/romanianjokes.json");
 
+// --| Default API endpoint. Check if is working :)
 router.get("/", (req, res, next) =>
 {
     return res.status(200).json({ message: "It's working 😃 ! Try /api/romanianjokes or /api/romanianjokes/30/ for example" });
