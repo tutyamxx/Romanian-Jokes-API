@@ -44,7 +44,7 @@ router.get("/romanianjokes/filter/:joketype", (req, res, next) =>
     return res.status(200).json(GetJokeType);
 });
 
-// --| Get a random Romanian joke from the database and return it as JSON response
+// --| Get a specific joke by id
 router.get("/romanianjokes/:id", (req, res, next) =>
 {
     // --| Get the joke id specified in the parameter
