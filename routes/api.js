@@ -11,7 +11,7 @@ const RomanianJokesFile = require("../jokes/romanianjokes.json");
 
 router.get("/", (req, res, next) =>
 {
-    return res.status(200).json({ message: "Try /api/romanianjokes or /api/romanianjokes/seci/ for example" });
+    return res.status(200).json({ message: "It's working 😃 ! Try /api/romanianjokes or /api/romanianjokes/30/ for example" });
 });
 
 // --| Get a random Romanian joke from the database and return it as JSON response
