@@ -25,6 +25,24 @@ router.get("/romanianjokes", (req, res, next) =>
     return res.status(200).json(GetRandomJoke);
 });
 
+// --| Get all joke categories from the database and return it as a JSON response
+router.get("/romanianjokes/categories", (req, res, next) =>
+{
+    // --| Get the joke type from our jokes file
+    const GetJokeCategories = RomanianJokesFile.filter((li, index, self) => self.map(item => item.joketype).indexOf(li.joketype) === index);
+
+    // --| Array with each joke category found by filtering
+    let JokeTypes = [];
+
+    GetJokeCategories.forEach((element) =>
+    {
+        JokeTypes.push(element.joketype);
+    });
+
+    // --| Return the joke types found by filtering as JSON result
+    return res.status(200).json(JokeTypes);
+});
+
 // --| Get all the jokes from the jokes file
 router.get("/romanianjokes/all", (req, res, next) =>
 {
