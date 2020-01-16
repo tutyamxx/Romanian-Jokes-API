@@ -19,7 +19,7 @@ Endpoints | Result | URL Usage Example |
 /api/romanianjokes/categories | Get all the joke categories | https://{url}/api/**romanianjokes**/**categories** |
 /api/romanianjokes/:id | Get a specific romanian joke | https://{url}/api/**romanianjokes**/**30** |
 /api/romanianjokes/filter/:joketype | Get all the jokes filtered by a joke type | https://{url}/api/**romanianjokes**/filter/**seci** |
-/api/romanianjokes/filter/:joketype/random | Get a random joke filtered by a joke type | https://{url}/api/romanianjokes/filter/**seci**/**random** |
+/api/romanianjokes/filter/:joketype/random | Get a random joke filtered by a joke type | https://{url}/api/**romanianjokes**/filter/**seci**/**random** |
 
 # For consuming
 
