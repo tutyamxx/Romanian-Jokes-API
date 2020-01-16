@@ -24,4 +24,23 @@ router.get("/romanianjokes", (req, res, next) =>
     return res.status(200).json(GetRandomJoke);
 });
 
+// --| Get a random Romanian joke from the database and return it as JSON response
+router.get("/romanianjokes/:id", (req, res, next) =>
+{
+    // --| Get the joke id specified in the parameter
+    const iGetJokeID = parseInt(req.params.id);
+
+    // --| Get the joke from our jokes file and filter it by specified parameter
+    const GetSpecificJokeByID = RomanianJokesFile.filter(joke => joke.id === iGetJokeID);
+
+    // --| Check if joke exists in our joke file
+    if(!Object.keys(GetSpecificJokeByID).length)
+    {
+        return res.status(404).json({ message: "This joke id specified could not be found" });
+    }
+
+    // --| Return the specified joke
+    return res.status(200).json(GetSpecificJokeByID);
+});
+
 module.exports = router;
