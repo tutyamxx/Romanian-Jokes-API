@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const http = require("http");
 
 const jokesRouter = require('./routes/api');
 
@@ -37,5 +38,12 @@ app.use(function(err, req, res, next)
         error: err
     });
 });
+
+// --| Prevent Heroku app from sleeping
+setInterval(() =>
+{
+    http.get("https://romanian-jokes-api.herokuapp.com/api/romanianjokes/");
+    
+}, 300000);
 
 module.exports = app;
