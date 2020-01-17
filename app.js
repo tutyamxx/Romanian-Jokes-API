@@ -42,7 +42,7 @@ app.use(function(err, req, res, next)
 // --| Prevent Heroku app from sleeping
 setInterval(() =>
 {
-    http.get("https://romanian-jokes-api.herokuapp.com/api/romanianjokes/");
+    http.get("http://romanian-jokes-api.herokuapp.com/api/romanianjokes/");
     
 }, 300000);
 
