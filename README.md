@@ -3,6 +3,7 @@
 </p>
 
 # Romanian Jokes API 👌😹 
+ * First romanian API for romanian jokes ever! Over 330 jokes available!
  * Just a dumb API which returns dumb romanian jokes made when I died of boredom
  * I need to add more dumb jokes and new things in the future
 
