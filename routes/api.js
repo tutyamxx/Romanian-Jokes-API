@@ -50,6 +50,16 @@ router.get("/romanianjokes/all", (req, res, next) =>
     return res.status(200).json(RomanianJokesFile);
 });
 
+// --| Get random 10 jokes from the file
+router.get("/romanianjokes/random_ten", (req, res, next) =>
+{
+    // --| Get random 10 jokes
+    const RandomTenJokes = RomanianJokesFile.slice(0, 10).map(function () { return this.splice(Math.floor(Math.random() * this.length), 1)[0]; }, RomanianJokesFile.slice());
+
+    // --| Return 10 jokes as a JSON result
+    return res.status(200).json(RandomTenJokes);
+});
+
 // --| Get all the jokes filtered by joke type
 router.get("/romanianjokes/filter/:joketype", (req, res, next) =>
 {
