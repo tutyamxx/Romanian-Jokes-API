@@ -1,0 +1,87 @@
+body
+{
+    background-color: #ff9966;
+    background-image: url("../images/backgroundemoji.jpg");
+    background-repeat: repeat;
+    background-size: 100%;
+}
+
+h1
+{
+    font-family: 'Special Elite', cursive;
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px #000000;
+    text-align: center;
+    font-weight: bolder;
+}
+
+#forkme
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+textarea
+{
+    -moz-box-shadow: 0 0 8px #239CF5;
+    -webkit-box-shadow: 0 0 8px #239CF5;
+    box-shadow: 0 0 8px #239CF5;
+    resize: none;
+    border-radius: 6px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+    background-image: url("../images/laugh.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding: 10px;
+    font-family: 'Kanit', sans-serif;
+}
+
+input[type="text"], textarea
+{
+    background-color: whitesmoke;
+    color: #111720;
+}
+
+.button
+{
+    font-family: 'Special Elite', cursive;
+    -moz-box-shadow: 0 0 8px #239CF5;
+    -webkit-box-shadow: 0 0 8px #239CF5;
+    box-shadow: 0 0 8px #239CF5;
+    background-color: #111720;
+    border: none;
+    color: white;
+    width: 300px;
+    border-radius: 6px;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#joke-number
+{
+    font-family: 'Special Elite', cursive;
+    color: whitesmoke;
+    font-weight: bolder;
+    margin: auto;
+    text-align: center;
+    position: sticky;
+}
+
+::selection
+{
+    background: #F85051; /* WebKit/Blink Browsers */
+}
+
+::-moz-selection
+{
+    background: #F85051; /* Gecko Browsers */
+}

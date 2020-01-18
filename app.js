@@ -46,7 +46,7 @@ app.use(function(err, req, res, next)
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-    res.redirect("/api/");
+    //res.redirect("/api/");
 });
 
 // --| Ping Heroku app and prevent it from sleeping every 15 minutes
