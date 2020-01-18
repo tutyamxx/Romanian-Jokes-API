@@ -1,15 +1,17 @@
-const createError = require('http-errors');
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
 const http = require("http");
 const rateLimit = require("express-rate-limit");
+const favicon = require("serve-favicon")
 
 const jokesRouter = require('./routes/api');
 
 let app = express();
 
+app.use(favicon(path.join(__dirname, "favicon.ico")));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
