@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 // --| Need this set for Heroku
 app.set('trust proxy', 1);
 
@@ -42,6 +43,8 @@ app.use(function(err, req, res, next)
     // --| Set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+    res.redirect("/api/");
 
     // --| Render the error page
     res.status(err.status || 500);
