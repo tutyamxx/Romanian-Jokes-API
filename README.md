@@ -37,8 +37,6 @@ Endpoints | Error Message | Explanation |
 /api/romanianjokes/filter/:joketype | This joke type could not be found in the jokes list | Returned when the joke type specified could not be found |
 /api/romanianjokes/filter/:joketype/random | This joke type could not be found in the jokes list | Returned when the joke type specified could not be found |
 
-
-
 # For consuming
 
 * Rule is simple, jokes are returned in JSON format
