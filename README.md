@@ -33,6 +33,7 @@ Endpoints | Result | URL Usage Example |
 
 Endpoints | Error Message | Explanation |
 ---------- | ------------ | ------------ |
+**All the endpoints listed above** | Too many requests! Try again after 1 minute? | Reached the maximum requests rate which is 100 requests per minute |
 /api/romanianjokes/:id | This joke id or filter specified could not be found | Returned when a joke with the specified filter or ID does not exist |
 /api/romanianjokes/filter/:joketype | This joke type could not be found in the jokes list | Returned when the specified joke type could not be found |
 /api/romanianjokes/filter/:joketype/random | This joke type could not be found in the jokes list | Returned when the specified joke type could not be found |
