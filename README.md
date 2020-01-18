@@ -29,6 +29,16 @@ Endpoints | Result | URL Usage Example |
 /api/romanianjokes/filter/:joketype | Get all the jokes filtered by a joke type | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/filter/seci">Click Here!</a> |
 /api/romanianjokes/filter/:joketype/random | Get a random joke filtered by a joke type | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/filter/seci/random">Click Here!</a> |
 
+# Error Messages
+
+Endpoints | Error Message | Explanation |
+---------- | ------------ | ------------ |
+/api/romanianjokes/:id | This joke id or filter specified could not be found | Returned when a joke with that specific filter or ID does not exist |
+/api/romanianjokes/filter/:joketype | This joke type could not be found in the jokes list | Returned when the joke type specified could not be found |
+/api/romanianjokes/filter/:joketype/random | This joke type could not be found in the jokes list | Returned when the joke type specified could not be found |
+
+
+
 # For consuming
 
 * Rule is simple, jokes are returned in JSON format
