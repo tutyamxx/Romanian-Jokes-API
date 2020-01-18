@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const http = require("http");
+const rateLimit = require("express-rate-limit");
 
 const jokesRouter = require('./routes/api');
 
@@ -15,7 +16,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api', jokesRouter);
+// --| Need this set for Heroku
+app.set('trust proxy', 1);
+
+// --| Limit the API for 100 requests per minute only
+const APILimiter = rateLimit(
+{
+    windowMs: 60000,
+    max: 100,
+    message: "Too many requests! Try again after 1 minute"
+});
+
+app.use("/api/", APILimiter);
+app.use("/api/", jokesRouter);
 
 // --| Catch 404 and forward to error handler
 app.use(function(req, res, next)
