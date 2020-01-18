@@ -2,7 +2,7 @@ const RequestJokeFromAPI = "https://romanian-jokes-api.herokuapp.com/api/romania
 
 const RandomCancerEmoji =
 [
-    "🤣", "😂", "😹", "🤪", "😸"
+    "🤣", "😂", "😹", "🤪", "😸", "😁", "😎"
 ];
 
 // --| Load a random romanian joke on page load
