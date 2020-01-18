@@ -20,7 +20,7 @@
 * You can test it live here ➡️ https://tutyamxx.github.io/RomanianJokes/
 
 Endpoints | Result | URL Usage Example |
----------- | --- | ------------ |
+---------- | --- | :------------: |
 /api/ | Test if the API runs | <a href="https://romanian-jokes-api.herokuapp.com/api/">Click Here!</a> |
 /api/romanianjokes | Get a random romanian joke | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes">Click Here!</a> |
 /api/romanianjokes/all | Get all the jokes | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/all">Click Here!</a> |
