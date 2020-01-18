@@ -24,7 +24,7 @@ const APILimiter = rateLimit(
 {
     windowMs: 60000,
     max: 100,
-    message: "Too many requests! Try again after 1 minute"
+    message: { message: "Too many requests! Try again after 1 minute?" }
 });
 
 app.use("/api/", APILimiter);
