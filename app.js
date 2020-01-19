@@ -5,7 +5,8 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const http = require("http");
 const rateLimit = require("express-rate-limit");
-const favicon = require("serve-favicon")
+const favicon = require("serve-favicon");
+const cors = require("cors");
 
 const jokesRouter = require('./routes/api');
 
@@ -18,6 +19,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// --| Enable CORS for all requests
+app.use(cors());
 
 // --| Need this set for Heroku
 app.set('trust proxy', 1);
