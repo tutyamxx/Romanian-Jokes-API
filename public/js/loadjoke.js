@@ -22,6 +22,9 @@ function GetRandomRomanianJoke()
     let szJokeRetrieved = "";
     let iJokeNumber = 0;
 
+    // --| Randomly assign an emoji to the button
+    $("#change-emoji").empty().text("Generate Joke 👌" + RandomCancerEmoji[Math.floor(Math.random() * RandomCancerEmoji.length)]);
+
     // --| Wait for JSON result
     $.when($.getJSON(RequestJokeFromAPI.toString(), function(data)
     {
@@ -34,7 +37,6 @@ function GetRandomRomanianJoke()
         // --| Clear the textarea and add new freshly generated joke
         $("textarea").empty();
         $("#romanian-jokes").append(szJokeRetrieved);
-        $("#change-emoji").empty().text("Generate Joke 👌" + RandomCancerEmoji[Math.floor(Math.random() * RandomCancerEmoji.length)]);
 
         // --| Clear the joke number div and refresh with the current number
         $("#joke-number").empty().html('<a href="' + RequestJokeFromAPI + '/' + iJokeNumber + '" target="_blank">Joke ID: #' + iJokeNumber + '</a>');
@@ -49,8 +51,7 @@ function GetRandomRomanianJoke()
         $("textarea").empty();
         $("#romanian-jokes").append(szJokeRetrieved);
 
-        // --| Clear the Joke ID link and regenerate a new emoji in the button
+        // --| Clear the Joke ID link
         $("#joke-number").empty();
-        $("#change-emoji").empty().text("Generate Joke 👌" + RandomCancerEmoji[Math.floor(Math.random() * RandomCancerEmoji.length)]);
     });
 };
