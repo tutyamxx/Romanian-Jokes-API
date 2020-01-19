@@ -43,6 +43,16 @@ router.get("/romanianjokes/categories", (req, res, next) =>
     return res.status(200).json({ categories: JokeTypes });
 });
 
+// --| Get the jokes count from our jokes file
+router.get("/romanianjokes/count", (req, res, next) =>
+{
+    // --| Get all the jokes available in the jokes file
+    const GetJokesCount = Object.keys(RomanianJokesFile).length + 1;
+
+    // --| Return the jokes count
+    return res.status(200).json({ jokes_available: GetJokesCount === 0 ? 1 : parseInt(GetJokesCount) });
+});
+
 // --| Get all the jokes from the jokes file
 router.get("/romanianjokes/all", (req, res, next) =>
 {
