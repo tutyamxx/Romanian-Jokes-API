@@ -8,13 +8,15 @@ const RandomCancerEmoji =
 // --| Load a random romanian joke on page load
 $(document).ready()
 {
+    // --| Generate a random joke on page load
     GetRandomRomanianJoke();
 
     // --| Prevent enter/space spam
-    $("#change-emoji").keypress(function (event)
+    $("#change-emoji").keydown(function (event)
     {
         if(event.keyCode === 10 || event.keyCode === 13 || event.keyCode === 32)
         {
+            event.stopPropagation();
             event.preventDefault();
         }
     });
@@ -32,7 +34,7 @@ function GetRandomRomanianJoke()
     $("#romanian-jokes").effect("shake", { times: 2 }, 300);
     $("textarea").empty();
     $("#romanian-jokes").append("Fetching a dumb joke...");
-    $("#joke-category").empty().text("Category: Fetching...");
+    $("#joke-category").empty().text("Category: Fetching... 🤔");
     
     let szJokeRetrieved = "";
     let szJokeCategory = "";
