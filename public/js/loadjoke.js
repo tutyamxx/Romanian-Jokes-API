@@ -9,6 +9,20 @@ const RandomCancerEmoji =
 $(document).ready()
 {
     GetRandomRomanianJoke();
+
+    // --| Prevent enter spam
+    $("#change-emoji").keypress(function (event)
+    {
+        if(event.keyCode === 10 || event.keyCode === 13)
+        {
+            event.preventDefault();
+        }
+    });
+};
+
+function capitalizeFirstLetter(string)
+{
+    return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
 // --| Function to get a random romanian joke
@@ -18,8 +32,10 @@ function GetRandomRomanianJoke()
     $("#romanian-jokes").effect("shake", { times: 2 }, 300);
     $("textarea").empty();
     $("#romanian-jokes").append("Generating a dumb joke...");
+    $("#joke-category").empty().text("Category: Fetching...");
     
     let szJokeRetrieved = "";
+    let szJokeCategory = "";
     let iJokeNumber = 0;
 
     // --| Randomly assign an emoji to the button
@@ -29,6 +45,7 @@ function GetRandomRomanianJoke()
     $.when($.getJSON(RequestJokeFromAPI.toString(), function(data)
     {
         szJokeRetrieved = data.joke.toString();
+        szJokeCategory = data.joketype.toString();
         iJokeNumber = parseInt(data.id);
 
     })).done(function ()
@@ -37,6 +54,7 @@ function GetRandomRomanianJoke()
         // --| Clear the textarea and add new freshly generated joke
         $("textarea").empty();
         $("#romanian-jokes").append(szJokeRetrieved);
+        $("#joke-category").empty().text("Category: " + capitalizeFirstLetter(szJokeCategory));
 
         // --| Clear the joke number div and refresh with the current number
         $("#joke-number").empty().html('<a href="' + RequestJokeFromAPI + '/' + iJokeNumber + '" target="_blank">Joke ID: #' + iJokeNumber + '</a>');
@@ -53,5 +71,6 @@ function GetRandomRomanianJoke()
 
         // --| Clear the Joke ID link
         $("#joke-number").empty();
+        $("#joke-category").empty().text("Category: 🤬");
     });
 };

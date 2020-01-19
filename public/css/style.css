@@ -13,7 +13,7 @@ body
     -webkit-box-sizing: border-box;
 }
 
-h1
+h1, #joke-category
 {
     font-family: 'Special Elite', cursive;
     color: whitesmoke;
