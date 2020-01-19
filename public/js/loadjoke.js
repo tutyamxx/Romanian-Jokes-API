@@ -31,7 +31,7 @@ function GetRandomRomanianJoke()
     // --| Add a fake loading text until the API responds
     $("#romanian-jokes").effect("shake", { times: 2 }, 300);
     $("textarea").empty();
-    $("#romanian-jokes").append("Generating a dumb joke...");
+    $("#romanian-jokes").append("Fetching a dumb joke...");
     $("#joke-category").empty().text("Category: Fetching...");
     
     let szJokeRetrieved = "";
@@ -39,7 +39,7 @@ function GetRandomRomanianJoke()
     let iJokeNumber = 0;
 
     // --| Randomly assign an emoji to the button
-    $("#change-emoji").empty().text("Generate Joke 👌" + RandomCancerEmoji[Math.floor(Math.random() * RandomCancerEmoji.length)]);
+    $("#change-emoji").empty().text("Random Joke 👌" + RandomCancerEmoji[Math.floor(Math.random() * RandomCancerEmoji.length)]);
 
     // --| Wait for JSON result
     $.when($.getJSON(RequestJokeFromAPI.toString(), function(data)
