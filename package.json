@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "mocha --timeout 10000"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -15,5 +16,10 @@
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
     "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.0.0",
+    "request": "^2.88.0"
   }
 }
