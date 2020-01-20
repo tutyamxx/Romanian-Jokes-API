@@ -13,6 +13,7 @@ describe("Testing API Endpoint Responses:", () =>
 
                 expect(response.statusCode).to.be.equal(200);
                 expect(ParseBody).to.be.a("object");
+                expect(Object.keys(ParseBody).length).to.be.equal(1);
                 expect(ParseBody).to.have.a.property("message").to.be.equal("It's working 😃 ! Try /api/romanianjokes or look here https://github.com/tutyamxx/Romanian-Jokes-API#usage");
                 done();
             });
@@ -27,8 +28,10 @@ describe("Testing API Endpoint Responses:", () =>
             {
                 const ParseBody = JSON.parse(body);
 
+                console.log(ParseBody.length)
                 expect(response.statusCode).to.be.equal(200);
                 expect(ParseBody).to.be.a("object");
+                expect(Object.keys(ParseBody).length).to.be.equal(3);
                 expect(ParseBody).to.have.a.property("id").to.be.a("number").to.be.above(0);
                 expect(ParseBody).to.have.a.property("joketype").to.be.a("string");
                 expect(ParseBody).to.have.a.property("joke").to.be.a("string");
@@ -47,6 +50,7 @@ describe("Testing API Endpoint Responses:", () =>
 
                 expect(response.statusCode).to.be.equal(200);
                 expect(ParseBody).to.be.a("array");
+                expect(ParseBody.length).to.be.above(0);
                 done();
             });
         });
@@ -62,6 +66,7 @@ describe("Testing API Endpoint Responses:", () =>
 
                 expect(response.statusCode).to.be.equal(200);
                 expect(ParseBody).to.be.a("object");
+                expect(Object.keys(ParseBody).length).to.be.equal(1);
                 expect(ParseBody).to.have.a.property("jokes_available").to.be.a("number").to.be.above(0);
 
                 done();
@@ -79,7 +84,8 @@ describe("Testing API Endpoint Responses:", () =>
 
                 expect(response.statusCode).to.be.equal(200);
                 expect(ParseBody).to.be.a("array");
-                expect(ParseBody).to.be.to.have.lengthOf(10);
+                expect(ParseBody).to.have.lengthOf(10);
+                expect(ParseBody.length).to.be.above(0);
                 done();
             });
         });
@@ -95,6 +101,7 @@ describe("Testing API Endpoint Responses:", () =>
 
                 expect(response.statusCode).to.be.equal(200);
                 expect(ParseBody).to.be.a("object");
+                expect(Object.keys(ParseBody).length).to.be.equal(1);
                 expect(ParseBody).to.have.a.property("categories").to.be.a("array");
                 done();
             });
@@ -116,6 +123,7 @@ describe("Testing API Endpoint Responses:", () =>
                     expect(response.statusCode).to.be.equal(200);
                     expect(ParseBody.jokes_available).to.be.a("number").to.be.above(0);
                     expect(ParseBody1).to.be.a("array");
+                    expect(ParseBody1.length).to.be.equal(1);
                     done();
                 });
             });
@@ -128,14 +136,15 @@ describe("Testing API Endpoint Responses:", () =>
         {
             request("http://localhost:3000/api/romanianjokes/categories", (error, response, body) =>
             {
-                const ParseBody = JSON.parse(response.body);
+                const ParseBody = JSON.parse(body);
                 const GetRandomFilterFromCategories = ParseBody.categories[Math.floor(Math.random() * ParseBody.categories.length)];
 
-                request("http://localhost:3000/api/romanianjokes/filter/" + GetRandomFilterFromCategories, (error, response, body) =>
+                request("http://localhost:3000/api/romanianjokes/filter/" + GetRandomFilterFromCategories, (error, response, body1) =>
                 {
-                    const ParseBody1 = JSON.parse(response.body);
+                    const ParseBody1 = JSON.parse(body1);
 
                     expect(ParseBody1).to.be.a("array");
+                    expect(ParseBody1.length).to.be.above(0);
                     done();
                 });
             });
@@ -148,15 +157,16 @@ describe("Testing API Endpoint Responses:", () =>
         {
             request("http://localhost:3000/api/romanianjokes/categories", (error, response, body) =>
             {
-                const ParseBody = JSON.parse(response.body);
+                const ParseBody = JSON.parse(body);
                 const GetRandomFilterFromCategories = ParseBody.categories[Math.floor(Math.random() * ParseBody.categories.length)];
 
-                request("http://localhost:3000/api/romanianjokes/filter/" + GetRandomFilterFromCategories + "/random", (error, response, body) =>
+                request("http://localhost:3000/api/romanianjokes/filter/" + GetRandomFilterFromCategories + "/random", (error, response, body1) =>
                 {
-                    const ParseBody1 = JSON.parse(response.body);
+                    const ParseBody1 = JSON.parse(body1);
 
                     expect(response.statusCode).to.be.equal(200);
                     expect(ParseBody1).to.deep.be.a("object");
+                    expect(Object.keys(ParseBody1).length).to.be.equal(3);
                     expect(ParseBody1).to.have.a.property("id").to.be.a("number").to.be.above(0);
                     expect(ParseBody1).to.have.a.property("joketype").to.be.a("string");
                     expect(ParseBody1).to.have.a.property("joke").to.be.a("string");
