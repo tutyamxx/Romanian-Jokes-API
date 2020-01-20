@@ -11,7 +11,7 @@ const RandomCancerEmoji =
 $(document).ready()
 {
     // --| Generate a random joke on page load
-    GetRandomRomanianJoke();
+    GetRandomRomanianJoke(false);
 
     // --| Prevent enter/space spam
     $("#change-emoji").keydown(function (event)
@@ -30,10 +30,14 @@ function capitalizeFirstLetter(string)
 };
 
 // --| Function to get a random romanian joke
-function GetRandomRomanianJoke()
+function GetRandomRomanianJoke(bShake)
 {
     // --| Add a fake loading text until the API responds
-    $("#romanian-jokes").effect("shake", { times: 2 }, 300);
+    if(bShake === true)
+    {
+        $("#romanian-jokes").effect("shake", { times: 2 }, 300);
+    }
+
     $("textarea").empty();
     $("#romanian-jokes").append("Fetching a dumb joke...");
     $("#joke-category").empty().text("Category: Fetching...");
