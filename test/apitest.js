@@ -177,4 +177,6 @@ describe("Testing API Endpoint Responses:", () =>
             });
         });
     });
+
+    after(() => chai.request(app).close());
 });
