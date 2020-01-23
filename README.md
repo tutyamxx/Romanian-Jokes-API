@@ -23,6 +23,7 @@ Endpoints | Result | URL Usage Example |
 ---------- | --- | :------------: |
 /api/ | Test if the API runs | <a href="https://romanian-jokes-api.herokuapp.com/api/">Click Here!</a> |
 /api/romanianjokes | Get a random romanian joke | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes">Click Here!</a> |
+/api/romanianjokes/version | Get the API version | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/version">Click Here!</a>
 /api/romanianjokes/all | Get all the jokes | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/all">Click Here!</a> |
 /api/romanianjokes/count | Get the number of jokes available | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/count">Click Here!</a> |
 /api/romanianjokes/random_ten | Get random 10 jokes | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/random_ten">Click Here!</a> |
