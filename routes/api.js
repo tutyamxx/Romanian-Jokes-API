@@ -1,4 +1,5 @@
 const express = require("express");
+const LoadVersion = require("../package.json");
 const router = express.Router();
 
 router.use((req, res, next) =>
@@ -13,6 +14,11 @@ const RomanianJokesFile = require("../jokes/romanianjokes.json");
 router.get("/", (req, res, next) =>
 {
     return res.status(200).json({ message: "It's working 😃 ! Try /api/romanianjokes or look here https://github.com/tutyamxx/Romanian-Jokes-API#usage" });
+});
+
+router.get("/romanianjokes/version", (req, res, next) =>
+{
+    return res.status(200).json({ version: LoadVersion.version });
 });
 
 // --| Get a random Romanian joke from the database and return it as JSON response

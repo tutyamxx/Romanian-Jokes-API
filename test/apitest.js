@@ -41,6 +41,22 @@ describe("Testing API Endpoint Responses:", () =>
         });
     });
 
+    describe("GET /api/romanianjokes/version", () =>
+    {
+        it("Should return a string with the API version with a status code of OK (200)", (done) =>
+        {
+            chai.request(app).get("/api/romanianjokes/version").end((err, response) =>
+            {
+                expect(response).to.have.status(200);
+                expect(response.body).to.be.a("object");
+                expect(Object.keys(response.body).length).to.be.equal(1);
+                expect(response.body).to.have.a.property("version").and.to.be.a("string").and.to.have.length.above(0).and.to.match(/^(\d+\.)?(\d+\.)?(\*|\d+)$/);
+
+                done();
+            });
+        });
+    });
+
     describe("GET /api/romanianjokes/all", () =>
     {
         it("Should return all the jokes with a status code of OK (200)", (done) =>
