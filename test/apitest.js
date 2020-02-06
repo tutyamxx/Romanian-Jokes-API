@@ -139,6 +139,20 @@ describe("Testing API Endpoint Responses:", () =>
                 });
             });
         });
+
+        it("Should return a status code of NOT FOUND (404) when joke ID does not exist", (done) =>
+        {
+            chai.request(app).get("/api/romanianjokes/9999999999999999999999999999").end((err, response) =>
+            {
+                expect(response).to.have.status(404);
+                expect(response.body).to.be.a("object");
+                expect(Object.keys(response.body).length).to.be.equal(1);
+                expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
+                expect(response.body.message).to.be.equal("This joke id or filter specified could not be found").to.not.be.empty;
+
+                done();
+            });
+        });
     });
 
     describe("GET /api/romanianjokes/filter/:joketype", () =>
@@ -162,6 +176,20 @@ describe("Testing API Endpoint Responses:", () =>
 
                     done();
                 });
+            });
+        });
+
+        it("Should return a status code of NOT FOUND (404) when joke type does not exist", (done) =>
+        {
+            chai.request(app).get("/api/romanianjokes/filter/somenonsensestring1234nonsens5435534").end((err, response) =>
+            {
+                expect(response).to.have.status(404);
+                expect(response.body).to.be.a("object");
+                expect(Object.keys(response.body).length).to.be.equal(1);
+                expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
+                expect(response.body.message).to.be.equal("This joke type could not be found in the jokes list").to.not.be.empty;
+
+                done();
             });
         });
     });
@@ -190,6 +218,20 @@ describe("Testing API Endpoint Responses:", () =>
 
                     done();
                 });
+            });
+        });
+
+        it("Should return a status code of NOT FOUND (404) when joke type does not exist", (done) =>
+        {
+            chai.request(app).get("/api/romanianjokes/filter/somenonsensestring1234nonsens5435534/random").end((err, response) =>
+            {
+                expect(response).to.have.status(404);
+                expect(response.body).to.be.a("object");
+                expect(Object.keys(response.body).length).to.be.equal(1);
+                expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
+                expect(response.body.message).to.be.equal("This joke type could not be found in the jokes list").to.not.be.empty;
+
+                done();
             });
         });
     });
