@@ -52,11 +52,11 @@ app.use(function(err, req, res, next)
     //res.redirect("/api/");
 });
 
-// // --| Ping Heroku app and prevent it from sleeping every 15 minutes
-// setInterval(() =>
-// {
-//     http.get("http://romanian-jokes-api.herokuapp.com/api/romanianjokes/");
+// --| Ping Heroku app and prevent it from sleeping every 15 minutes
+setInterval(() =>
+{
+    http.get("http://romanian-jokes-api.herokuapp.com/api/romanianjokes/");
 
-// }, 900000);
+}, 900000);
 
 module.exports = app;
