@@ -15,32 +15,11 @@
 
 # Usage
 
+* **SEE THE NEW DOCS ON:** ➡️ [Official Documentation](https://tutyamxx.gitbook.io/romanian-jokes-api-docs/)
 * API Request limit is **100** requests per minute.
 * API Endpoint URL hosted on heroku ➡️ https://romanian-jokes-api.herokuapp.com/api/romanianjokes
 * You can test it LIVE here ➡️ https://romanian-jokes-api.herokuapp.com/
 * If you get an error while accessing the URL's is most likely that I'm out of free monthly Heroku Dyno hours 🤐
-
-Endpoints | Result | URL Usage Example |
----------- | --- | :------------: |
-/api/ | Test if the API runs | <a href="https://romanian-jokes-api.herokuapp.com/api/">Click Here!</a> |
-/api/romanianjokes | Get a random romanian joke | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes">Click Here!</a> |
-/api/romanianjokes/version | Get the API version | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/version">Click Here!</a>
-/api/romanianjokes/all | Get all the jokes | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/all">Click Here!</a> |
-/api/romanianjokes/count | Get the number of jokes available | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/count">Click Here!</a> |
-/api/romanianjokes/random_ten | Get random 10 jokes | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/random_ten">Click Here!</a> |
-/api/romanianjokes/categories | Get all the joke types so you can use them in filtering | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/categories">Click Here!</a> |
-/api/romanianjokes/:id | Get a specific romanian joke | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/30">Click Here!</a> |
-/api/romanianjokes/filter/:joketype | Get all the jokes filtered by a joke type | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/filter/seci">Click Here!</a> |
-/api/romanianjokes/filter/:joketype/random | Get a random joke filtered by a joke type | <a href="https://romanian-jokes-api.herokuapp.com/api/romanianjokes/filter/seci/random">Click Here!</a> |
-
-# Error Messages
-
-Endpoints | Error Message | Explanation |
----------- | ------------ | ------------ |
-**All the endpoints listed above** | Too many requests! Try again after 1 minute? | Reached the maximum requests rate which is 100 requests per minute |
-/api/romanianjokes/:id | This joke id or filter specified could not be found | Returned when a joke with the specified filter or ID does not exist |
-/api/romanianjokes/filter/:joketype | This joke type could not be found in the jokes list | Returned when the specified joke type could not be found |
-/api/romanianjokes/filter/:joketype/random | This joke type could not be found in the jokes list | Returned when the specified joke type could not be found |
 
 # For consuming
 
