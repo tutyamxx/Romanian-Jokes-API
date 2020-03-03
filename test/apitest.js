@@ -17,7 +17,7 @@ describe("Testing API Endpoint Responses:", () =>
                 expect(response.body).to.be.a("object");
                 expect(Object.keys(response.body).length).to.be.equal(1);
                 expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.be.equal("It's working 😃 ! Try /api/romanianjokes or look here https://github.com/tutyamxx/Romanian-Jokes-API#usage");
-                
+
                 done();
             });
         });
@@ -114,7 +114,7 @@ describe("Testing API Endpoint Responses:", () =>
                 expect(response.body).to.be.a("object");
                 expect(Object.keys(response.body).length).to.be.equal(1);
                 expect(response.body).to.have.a.property("categories").and.to.be.a("array").and.to.have.length.above(0);
-                
+
                 done();
             });
         });
