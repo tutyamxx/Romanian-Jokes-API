@@ -20,7 +20,3 @@
 * API Endpoint URL hosted on heroku ➡️ https://romanian-jokes-api.herokuapp.com/api/romanianjokes
 * You can test it LIVE here ➡️ https://romanian-jokes-api.herokuapp.com/
 * If you get an error while accessing the URL's is most likely that I'm out of free monthly Heroku Dyno hours 🤐
-
-# Some random API result example
-
-![Example result](https://github.com/tutyamxx/Romanian-Jokes-API/blob/master/randomjokeresult.PNG)
