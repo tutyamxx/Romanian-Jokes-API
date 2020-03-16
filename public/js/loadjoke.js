@@ -1,11 +1,6 @@
 const RequestJokeFromAPI = "https://romanian-jokes-api.herokuapp.com/api/romanianjokes";
 
-const RandomCancerEmoji =
-[
-    "🤣", "😂", "😹", "🤪",
-    "😸", "😁", "😎", "💩",
-    "😝", "🤭", "🙊", "👻"
-];
+const RandomCancerEmoji = [ "🤣", "😂", "😹", "🤪", "😸", "😁", "😎", "💩", "😝", "🤭", "🙊", "👻" ];
 
 // --| Load a random romanian joke on page load
 $(document).ready()
@@ -41,7 +36,7 @@ function GetRandomRomanianJoke(bShake)
     $("textarea").empty();
     $("#romanian-jokes").append("Fetching a dumb joke...");
     $("#joke-category").empty().text("Category: Fetching...");
-    
+
     let szJokeRetrieved = "";
     let szJokeCategory = "";
     let iJokeNumber = 0;
