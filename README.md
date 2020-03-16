@@ -2,6 +2,8 @@
   <img src="https://raw.githubusercontent.com/tutyamxx/Romanian-Jokes-API/master/joke.png" widht="100" height="100"><br/>
 </p>
 
+![Live Deployment](https://github.com/tutyamxx/Romanian-Jokes-API/workflows/Live%20Deployment/badge.svg?branch=master)
+
 # Romanian Jokes API 👌😹 
  * First romanian API for romanian jokes ever! Over **600** jokes available!
  * Just a dumb API developed in **Express.JS** which returns dumb romanian jokes made when I died of boredom
