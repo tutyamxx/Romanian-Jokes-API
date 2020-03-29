@@ -36,10 +36,9 @@ const APILimiter = rateLimit(
 app.use("/api/", APILimiter);
 app.use("/api/", jokesRouter);
 
-// --| Catch 404 and forward to error handler
-app.use(function(req, res, next)
+app.use(function (req, res, next)
 {
-    next(createError(404));
+    res.status(404).json({ message: "Sorry, can't find the page you are looking for 👀" });
 });
 
 // --| Error handler
@@ -48,8 +47,6 @@ app.use(function(err, req, res, next)
     // --| Set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-    //res.redirect("/api/");
 });
 
 // --| Ping Heroku app and prevent it from sleeping every 15 minutes

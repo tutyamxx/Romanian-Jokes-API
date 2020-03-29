@@ -236,5 +236,40 @@ describe("Testing API Endpoint Responses:", () =>
         });
     });
 
+    describe("GET /api/ random non existing page", () =>
+    {
+        it("Should return a status code of NOT FOUND (404) when there is a non existing page specified in the query", (done) =>
+        {
+            chai.request(app).get("/api/errorshouldreturn").end((err, response) =>
+            {
+                expect(response).to.have.status(404);
+                expect(response.body).to.be.a("object");
+                expect(Object.keys(response.body).length).to.be.equal(1);
+                expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
+                expect(response.body.message).to.be.equal("Sorry, can't find the page you are looking for 👀").to.not.be.empty;
+            });
+
+            chai.request(app).get("/api/romanianjoke").end((err, response) =>
+            {
+                expect(response).to.have.status(404);
+                expect(response.body).to.be.a("object");
+                expect(Object.keys(response.body).length).to.be.equal(1);
+                expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
+                expect(response.body.message).to.be.equal("Sorry, can't find the page you are looking for 👀").to.not.be.empty;
+            });
+
+            chai.request(app).get("/api/romanianjoke/countt").end((err, response) =>
+            {
+                expect(response).to.have.status(404);
+                expect(response.body).to.be.a("object");
+                expect(Object.keys(response.body).length).to.be.equal(1);
+                expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
+                expect(response.body.message).to.be.equal("Sorry, can't find the page you are looking for 👀").to.not.be.empty;
+            });
+
+            done();
+        });
+    });
+
     after(() => chai.request(app).close());
 });
