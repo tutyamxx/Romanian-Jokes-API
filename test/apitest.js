@@ -236,7 +236,7 @@ describe("Testing API Endpoint Responses:", () =>
         });
     });
 
-    describe("GET /api/ random non existing page", () =>
+    describe("GET /api/ random non existing page query", () =>
     {
         it("Should return a status code of NOT FOUND (404) when there is a non existing page specified in the query", (done) =>
         {
