@@ -3,7 +3,7 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-const http = require("http");
+const https = require("https");
 const rateLimit = require("express-rate-limit");
 const favicon = require("serve-favicon");
 const cors = require("cors");
@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 // --| Need this set for Heroku
-app.set('trust proxy', 1);
+app.set("trust proxy", 1);
 
 // --| Limit the API for 100 requests per minute only
 const APILimiter = rateLimit(
@@ -36,6 +36,7 @@ const APILimiter = rateLimit(
 app.use("/api/", APILimiter);
 app.use("/api/", jokesRouter);
 
+// --| 404 Response
 app.use((req, res, next) =>
 {
     res.status(404).json({ message: "Sorry, can't find the page you are looking for 👀" });
@@ -46,13 +47,13 @@ app.use((err, req, res, next) =>
 {
     // --| Set locals, only providing error in development
     res.locals.message = err.message;
-    res.locals.error = req.app.get("env") === "development" ? err : {};
+    res.locals.error = req.app.get("env") === "development" ? err : { };
 });
 
 // --| Ping Heroku app and prevent it from sleeping every 15 minutes
 setInterval(() =>
 {
-    http.get("http://romanian-jokes-api.herokuapp.com/api/romanianjokes/");
+    https.get("https://romanian-jokes-api.herokuapp.com/api/romanianjokes/");
 
 }, 900000);
 
