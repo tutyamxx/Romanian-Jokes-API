@@ -27,6 +27,9 @@ jobs:
 
     - stage: "Unit Testing on Windows with Node version 10 and 12"
       os: windows
+      node_js:
+        - 12
+        - 10
       script: npm test
 
     - stage: "Build if present"
