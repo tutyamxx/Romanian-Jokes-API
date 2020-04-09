@@ -6,32 +6,49 @@ language: node_js
 node_js:
   - 12
   - 10
+cache:
+  npm: false
 install: npm ci
 jobs:
   include:
-    - stage: "Unit Testing on Mac OSX"
+    - stage: "Unit Testing on Mac OS X with Node version 10 and 12"
       os: osx
+      node_js:
+        - 12
+        - 10
       script: npm test
 
-    - stage: "Unit Testing on Linux"
+    - stage: "Unit Testing on Linux with Node version 10 and 12"
       os: linux
+      node_js:
+        - 12
+        - 10
       script: npm test
 
-    - stage: "Unit Testing on Windows"
+    - stage: "Unit Testing on Windows with Node version 10 and 12"
       os: windows
       script: npm test
 
     - stage: "Build if present"
-      name: "Running NPM build if present on Mac OSX"
+      name: "Running NPM build if present on Mac OS X"
       os: osx
+      node_js:
+        - 12
+        - 10
       script: npm run build --if-present
 
     - stage: "Build if present"
       name: "Running NPM build if present on Linux"
       os: linux
+      node_js:
+        - 12
+        - 10
       script: npm run build --if-present
 
     - stage: "Build if present"
       name: "Running NPM build if present on Windows"
       os: windows
+      node_js:
+        - 12
+        - 10
       script: npm run build --if-present
