@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - 12
+  - 10
+install: npm ci
+jobs:
+  include:
+    - stage: "Running Unit Tests"
+      name: "Unit Testing"
+      script: npm test
+    - stage: "Build if present"
+      name: "Running NPM build if present"
+      script: npm run build --if-present
