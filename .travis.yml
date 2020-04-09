@@ -9,9 +9,29 @@ node_js:
 install: npm ci
 jobs:
   include:
-    - stage: "Running Unit Tests"
-      name: "Unit Testing"
+    - stage: "Unit Testing on Mac OSX"
+      os: osx
       script: npm test
+
+    - stage: "Unit Testing on Linux"
+      os: linux
+      script: npm test
+
+    - stage: "Unit Testing on Windows"
+      os: windows
+      script: npm test
+
     - stage: "Build if present"
-      name: "Running NPM build if present"
+      name: "Running NPM build if present on Mac OSX"
+      os: osx
+      script: npm run build --if-present
+
+    - stage: "Build if present"
+      name: "Running NPM build if present on Linux"
+      os: linux
+      script: npm run build --if-present
+
+    - stage: "Build if present"
+      name: "Running NPM build if present on Windows"
+      os: windows
       script: npm run build --if-present
