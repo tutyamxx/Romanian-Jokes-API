@@ -7,8 +7,9 @@ const https = require("https");
 const rateLimit = require("express-rate-limit");
 const favicon = require("serve-favicon");
 const cors = require("cors");
+const helmet = require("helmet");
 
-const jokesRouter = require('./routes/api');
+const jokesRouter = require("./routes/api");
 
 let app = express();
 
@@ -17,13 +18,16 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
 // --| Enable CORS for all requests
 app.use(cors());
 
 // --| Need this set for Heroku
 app.set("trust proxy", 1);
+
+// --| Enable Helmet to secure the API a bit
+app.use(helmet());
 
 // --| Limit the API for 100 requests per minute only
 const APILimiter = rateLimit(
