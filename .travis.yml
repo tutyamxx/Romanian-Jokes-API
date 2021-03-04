@@ -1,16 +1,25 @@
-os:
-  - linux
-  - osx
-  - windows
+matrix:
+  include:
+    # Windows
+    - os: windows
+
+    # Ubuntu Linux
+    - os: linux
+
+    # Mac OSX Latest
+    - os: osx
+      osx_image: xcode12.2
+
 language: node_js
+
 node_js:
-  - node
   - lts/*
-  - 12
-  - 10
+
 cache:
   npm: false
+
 install: npm ci
+
 jobs:
   include:
     - stage: "Unit Testing on Mac OS X"
