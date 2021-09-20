@@ -5,7 +5,7 @@
 <br>
 <p align="center">
   <img src="https://github.com/tutyamxx/Romanian-Jokes-API/workflows/Live%20Deployment/badge.svg?branch=master"><br/>
-  <a href="https://travis-ci.com/tutyamxx/Romanian-Jokes-API"><img src="https://travis-ci.com/tutyamxx/Romanian-Jokes-API.svg?branch=master"></a>
+  <a href="https://app.travis-ci.com/github/tutyamxx/Romanian-Jokes-API"><img src="https://app.travis-ci.com/tutyamxx/Romanian-Jokes-API.svg?branch=master"></a>
 </p>
 
 # Romanian Jokes API 👌😹 
