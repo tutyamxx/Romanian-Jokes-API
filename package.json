@@ -1,24 +1,20 @@
 {
     "name": "romanian-jokes-api",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "private": true,
     "scripts": {
         "start": "node ./bin/www",
-        "test": "mocha --timeout 10000 --exit"
+        "test": "SET NODE_ENV=test&&mocha --timeout 10000 --exit"
     },
     "dependencies": {
-        "chai": "^4.2.0",
-        "chai-http": "^4.3.0",
         "cookie-parser": "^1.4.5",
         "cors": "^2.8.5",
         "debug": "^4.1.1",
         "express": "^4.17.1",
         "express-rate-limit": "^5.1.1",
         "helmet": "^4.1.1",
-        "http-errors": "^1.7.3",
         "jade": "^1.11.0",
         "morgan": "^1.10.0",
-        "request": "^2.88.2",
         "serve-favicon": "^2.5.0"
     },
     "devDependencies": {

@@ -7,7 +7,7 @@ chai.use(chaiHttp);
 
 describe("Testing API Endpoint Responses:", () =>
 {
-    describe("GET default path of the API /api/", () =>
+    describe("🎯 GET default path of the API /api/", () =>
     {
         it("Should return a message that it is working with a status code of OK (200)", (done) =>
         {
@@ -23,7 +23,7 @@ describe("Testing API Endpoint Responses:", () =>
         });
     });
 
-    describe("GET a random romanian joke on path /api/romanianjokes", () =>
+    describe("🎯 GET a random romanian joke on path /api/romanianjokes", () =>
     {
         it("Should return a random Romanian Joke with a status code of OK (200)", (done) =>
         {
@@ -41,7 +41,7 @@ describe("Testing API Endpoint Responses:", () =>
         });
     });
 
-    describe("GET current API version on path /api/romanianjokes/version", () =>
+    describe("🎯 GET current API version on path /api/romanianjokes/version", () =>
     {
         it("Should return a string with the API version with a status code of OK (200)", (done) =>
         {
@@ -57,7 +57,7 @@ describe("Testing API Endpoint Responses:", () =>
         });
     });
 
-    describe("GET all existing jokes on path /api/romanianjokes/all", () =>
+    describe("🎯 GET all existing jokes on path /api/romanianjokes/all", () =>
     {
         it("Should return all the jokes with a status code of OK (200)", (done) =>
         {
@@ -72,7 +72,7 @@ describe("Testing API Endpoint Responses:", () =>
         });
     });
 
-    describe("GET the number of jokes available on path /api/romanianjokes/count", () =>
+    describe("🎯 GET the number of jokes available on path /api/romanianjokes/count", () =>
     {
         it("Should return a number of current jokes with a status code of OK (200)", (done) =>
         {
@@ -88,7 +88,7 @@ describe("Testing API Endpoint Responses:", () =>
         });
     });
 
-    describe("GET 10 random jokes on path /api/romanianjokes/random_ten", () =>
+    describe("🎯 GET 10 random jokes on path /api/romanianjokes/random_ten", () =>
     {
         it("Should return random 10 jokes with a status code of OK (200)", (done) =>
         {
@@ -104,7 +104,7 @@ describe("Testing API Endpoint Responses:", () =>
         });
     });
 
-    describe("GET all the joke categories on path /api/romanianjokes/categories", () =>
+    describe("🎯 GET all the joke categories on path /api/romanianjokes/categories", () =>
     {
         it("Should return a list of categories available with a status code of OK (200)", (done) =>
         {
@@ -120,7 +120,7 @@ describe("Testing API Endpoint Responses:", () =>
         });
     });
 
-    describe("GET a random joke with a random ID from path /api/romanianjokes/:id", () =>
+    describe("🎯 GET a random joke with a random ID from path /api/romanianjokes/:id", () =>
     {
         it("Should search a joke by given ID and return it with a status code of OK (200)", (done) =>
         {
@@ -155,7 +155,7 @@ describe("Testing API Endpoint Responses:", () =>
         });
     });
 
-    describe("GET all the jokes with a specified category query from path /api/romanianjokes/filter/:joketype", () =>
+    describe("🎯 GET all the jokes with a specified category query from path /api/romanianjokes/filter/:joketype", () =>
     {
         it("Should filter jokes by a given category and return all the filtered jokes with a status code of OK (200)", (done) =>
         {
@@ -194,7 +194,7 @@ describe("Testing API Endpoint Responses:", () =>
         });
     });
 
-    describe("GET all the jokes filtered by a category from path /api/romanianjokes/filter/:joketype/random", () =>
+    describe("🎯 GET all the jokes filtered by a category from path /api/romanianjokes/filter/:joketype/random", () =>
     {
         it("Should filter jokes by a given category and return a random joke with filter applied with a status code of OK (200)", (done) =>
         {
@@ -236,7 +236,7 @@ describe("Testing API Endpoint Responses:", () =>
         });
     });
 
-    describe("GET a random non existing page using an invalid query or path from API path /api/ ", () =>
+    describe("🎯 GET a random non existing page using an invalid query or path from API path /api/ ", () =>
     {
         it("Should return a status code of NOT FOUND (404) when there is a non existing page specified in the query", (done) =>
         {
