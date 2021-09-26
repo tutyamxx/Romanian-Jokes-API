@@ -271,5 +271,5 @@ describe("Testing API Endpoint Responses:", () =>
         });
     });
 
-    after(() => chai.request(app).close());
+    afterEach(() => chai.request(app).close());
 });
