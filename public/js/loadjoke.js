@@ -1,6 +1,5 @@
-const RequestJokeFromAPI = "https://romanian-jokes-api.herokuapp.com/api/romanianjokes";
-
-const RandomCancerEmoji = [ "🤣", "😂", "😹", "🤪", "😸", "😁", "😎", "💩", "😝", "🤭", "🙊", "👻" ];
+const requestJokeFromAPI = "https://romanian-jokes-api.herokuapp.com/v1/romanianjokes";
+const randomCancerEmoji = [ "🤣", "😂", "😹", "🤪", "😸", "😁", "😎", "💩", "😝", "🤭", "🙊", "👻" ];
 
 // --| Load a random romanian joke on page load
 $(document).ready()
@@ -42,10 +41,10 @@ function GetRandomRomanianJoke(bShake)
     let iJokeNumber = 0;
 
     // --| Randomly assign an emoji to the button
-    $("#change-emoji").empty().text("Random Joke 👌" + RandomCancerEmoji[Math.floor(Math.random() * RandomCancerEmoji.length)]);
+    $("#change-emoji").empty().text("Random Joke 👌" + randomCancerEmoji[Math.floor(Math.random() * randomCancerEmoji.length)]);
 
     // --| Wait for JSON result
-    $.when($.getJSON(RequestJokeFromAPI.toString(), function(data)
+    $.when($.getJSON(requestJokeFromAPI.toString(), function(data)
     {
         szJokeRetrieved = data.joke.toString();
         szJokeCategory = data.joketype.toString();
@@ -60,7 +59,7 @@ function GetRandomRomanianJoke(bShake)
         $("#joke-category").empty().text("Category: " + capitalizeFirstLetter(szJokeCategory));
 
         // --| Clear the joke number div and refresh with the current number
-        $("#joke-number").empty().html('<a href="' + RequestJokeFromAPI + '/' + iJokeNumber + '" target="_blank">Joke ID: #' + iJokeNumber + '</a>');
+        $("#joke-number").empty().html('<a href="' + requestJokeFromAPI + '/' + iJokeNumber + '" target="_blank">Joke ID: #' + iJokeNumber + '</a>');
 
     }).fail(function ()
     {
