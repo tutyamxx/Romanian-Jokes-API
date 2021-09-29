@@ -7,8 +7,7 @@ const rateLimit = require("express-rate-limit");
 const favicon = require("serve-favicon");
 const cors = require("cors");
 const helmet = require("helmet");
-
-const jokesRouter = require("./routes/api");
+const magic = require("express-routemagic");
 
 let app = express();
 
@@ -36,8 +35,8 @@ const APILimiter = rateLimit(
     message: { message: "Too many requests! Try again after 1 minute?" }
 });
 
-app.use("/api/", APILimiter);
-app.use("/api/", jokesRouter);
+app.use("/v1/", APILimiter);
+magic.use(app, { routesFolder: "routes", invokerPath: __dirname, allowSameName: true });
 
 // --| 404 Response
 app.use((req, res, next) =>
