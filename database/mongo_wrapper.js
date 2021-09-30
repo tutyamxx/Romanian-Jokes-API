@@ -1,5 +1,4 @@
 const mongodb = require("mongodb");
-const dbConfig = require("../config/credentials.json");
 
 // --| DB config for local and Heroku run
 const dbName = process.env.DB_NAME;
