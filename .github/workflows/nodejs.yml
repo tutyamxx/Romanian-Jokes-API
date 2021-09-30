@@ -12,12 +12,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      DB_NAME: 'romanian_jokes'
-      DB_COLLECTION: 'jokes'
-      DB_URI: ${{ secrets.DB_URI }}
-      CI: true
-
     strategy:
       matrix:
         node: [14.x, 16.x]
@@ -32,7 +26,13 @@ jobs:
     - name: Get the secret from base64
       run: |
         echo Import certificate from secrets and regenerate the file
-        echo $DB_URI | base64 -d > $RUNNER_TEMP/my_production.keystore
+        echo $DB_URI | base64 --decode > config
+
+     env:
+      DB_NAME: 'romanian_jokes'
+      DB_COLLECTION: 'jokes'
+      DB_URI: ${{ secrets.DB_URI }}
+      CI: true
 
     - run: npm i -f
     - run: npm test
