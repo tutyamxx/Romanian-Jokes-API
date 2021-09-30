@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const { dbName, dbCollection, mongoQueryFind, mongoGetRandom } = require("../../../../database/mongo_wrapper.js");
 
-
 // --| Get all the jokes filtered by joke type
 router.get("/:joketype", async (req, res, next) =>
 {
