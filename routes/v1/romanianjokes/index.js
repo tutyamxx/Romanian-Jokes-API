@@ -1,23 +1,27 @@
 const router = require("express").Router();
-const romanianJokesFile = require("../../../jokes/romanianjokes.json");
+const { dbName, dbCollection, mongoGetRandom, mongoQueryFind } = require("../../../database/mongo_wrapper.js");
 
-// --| Get a random Romanian joke from the database and return it as JSON response
-router.get("/", (req, res, next) => res.status(200).json(romanianJokesFile[Math.floor(Math.random() * romanianJokesFile.length)]));
+// --| Get a random Romanian joke from the database and return it as JSON object response
+router.get("/", async (req, res, next) =>
+{
+    // --| Get a random joke
+    const pipeLine = [{ $sample: { size: 1 } }];
+
+    return res.status(200).json(Object.assign(...await mongoGetRandom(dbName, dbCollection, pipeLine)));
+});
 
 // --| Get a specific joke by id
-router.get("/id/:id?", (req, res, next) =>
+router.get("/id/:id?", async (req, res, next) =>
 {
     // --| Get the joke id specified in the parameter
     const getJokeId = parseInt(req.params.id) || 0;
+    const getSpecificJokeById = await mongoQueryFind(dbName, dbCollection, { _id: getJokeId });
 
-    // --| Get the joke from our jokes file and filter it by specified parameter
-    const getSpecificJokeById = romanianJokesFile.filter(joke => joke.id === getJokeId);
-
-    // --| Check if joke exists in our joke file
-    if (!Object.keys(getSpecificJokeById).length) return res.status(404).json({ message: "This joke id or filter specified could not be found" });
+    // --| Check if joke exists in our database
+    if (!getSpecificJokeById.length) return res.status(404).json({ message: "This joke id specified is not in the database" });
 
     // --| Return the specified joke
-    return res.status(200).json(getSpecificJokeById);
+    return res.status(200).json(Object.assign(...getSpecificJokeById));
 });
 
 module.exports = router;

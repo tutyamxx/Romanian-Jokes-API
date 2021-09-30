@@ -1,14 +1,13 @@
 const router = require("express").Router();
-const romanianJokesFile = require("../../../jokes/romanianjokes.json");
+const { dbName, dbCollection, mongoGetRandom } = require("../../../database/mongo_wrapper.js");
 
-// --| Get random 10 jokes from the file
-router.get("/", (req, res, next) =>
+// --| Get random 10 jokes from the database
+router.get("/", async (req, res, next) =>
 {
-    // --| Get random 10 jokes
-    const randomTenJokes = romanianJokesFile.slice(0, 10).map(function () { return this.splice(Math.floor(Math.random() * this.length), 1)[0]; }, romanianJokesFile.slice());
+    const pipeLine = [{ $sample: { size: 10 } }];
 
     // --| Return 10 jokes as a JSON result
-    return res.status(200).json(randomTenJokes);
+    return res.status(200).json(await mongoGetRandom(dbName, dbCollection, pipeLine));
 });
 
 module.exports = router;

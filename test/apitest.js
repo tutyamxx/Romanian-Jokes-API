@@ -32,7 +32,7 @@ describe("Testing API Endpoint Responses:", () =>
                 expect(response).to.have.status(200);
                 expect(response.body).to.be.a("object");
                 expect(Object.keys(response.body).length).to.be.equal(3);
-                expect(response.body).to.have.a.property("id").and.to.be.a("number").and.to.match(/\d+/g);
+                expect(response.body).to.have.a.property("_id").and.to.be.a("number").and.to.match(/\d+/g);
                 expect(response.body).to.have.a.property("joketype").and.to.be.a("string").and.to.have.length.above(0);
                 expect(response.body).to.have.a.property("joke").and.to.be.a("string").and.to.have.length.above(0);
 
@@ -132,9 +132,8 @@ describe("Testing API Endpoint Responses:", () =>
                 chai.request(app).get(`/v1/romanianjokes/id/${parseInt(Math.floor(Math.random() * response.body.jokes_available) + 1)}`).end((err, response1) =>
                 {
                     expect(response1).to.have.status(200);
-                    expect(response1.body).to.be.a("array").and.to.have.length.above(0);
-                    expect(response1.body.length).to.be.equal(1);
-
+                    expect(response1.body).to.be.a("object");
+                    expect(Object.keys(response.body).length).to.be.equal(1);
                     done();
                 });
             });
@@ -148,7 +147,7 @@ describe("Testing API Endpoint Responses:", () =>
                 expect(response.body).to.be.a("object");
                 expect(Object.keys(response.body).length).to.be.equal(1);
                 expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
-                expect(response.body.message).to.be.equal("This joke id or filter specified could not be found").to.not.be.empty;
+                expect(response.body.message).to.be.equal("This joke id specified is not in the database").to.not.be.empty;
 
                 done();
             });
@@ -212,7 +211,7 @@ describe("Testing API Endpoint Responses:", () =>
                     expect(response1).to.have.status(200);
                     expect(response1.body).to.be.a("object");
                     expect(Object.keys(response1.body).length).to.be.equal(3);
-                    expect(response1.body).to.have.a.property("id").and.to.be.a("number").and.to.match(/\d+/g);
+                    expect(response1.body).to.have.a.property("_id").and.to.be.a("number").and.to.match(/\d+/g);
                     expect(response1.body).to.have.a.property("joketype").and.to.be.a("string").and.to.have.length.above(0);
                     expect(response1.body).to.have.a.property("joke").and.to.be.a("string").and.to.have.length.above(0);
 
