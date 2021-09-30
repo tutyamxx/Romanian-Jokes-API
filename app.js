@@ -53,10 +53,6 @@ app.use((err, req, res, next) =>
 });
 
 // --| Ping Heroku app and prevent it from sleeping every 15 minutes
-setInterval(() =>
-{
-    https.get("https://romanian-jokes-api.herokuapp.com/api/romanianjokes/");
-
-}, 900000);
+setInterval(() => https.get("https://romanian-jokes-api.herokuapp.com/api/romanianjokes/"), 900000);
 
 module.exports = app;
