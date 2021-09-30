@@ -21,15 +21,14 @@ jobs:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
-      env:
-        DB_NAME: ${{ env.DB_NAME }}
-        DB_COLLECTION: ${{ env.DB_COLLECTION }}
-        DB_URI: ${{ secrets.DB_URI }}
-        CI: true
-
       with:
         node-version: ${{ matrix.node-version }}
 
     - run: npm i -f
     - run: npm test
     - run: npm run build --if-present
+      env:
+        DB_NAME: ${{ env.DB_NAME }}
+        DB_COLLECTION: ${{ env.DB_COLLECTION }}
+        DB_URI: ${{ secrets.DB_URI }}
+        CI: true
