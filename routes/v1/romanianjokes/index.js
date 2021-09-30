@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { dbName, dbCollection, mongoGetRandom, mongoQueryFind } = require("../../../database/mongo_wrapper.js");
+const { dbName, dbCollection, mongoAggregate, mongoQueryFind } = require("../../../database/mongo_wrapper.js");
 
 // --| Get a random Romanian joke from the database and return it as JSON object response
 router.get("/", async (req, res, next) =>
@@ -7,7 +7,7 @@ router.get("/", async (req, res, next) =>
     // --| Get a random joke
     const pipeLine = [{ $sample: { size: 1 } }];
 
-    return res.status(200).json(Object.assign(...await mongoGetRandom(dbName, dbCollection, pipeLine)));
+    return res.status(200).json(Object.assign(...await mongoAggregate(dbName, dbCollection, pipeLine)));
 });
 
 // --| Get a specific joke by id

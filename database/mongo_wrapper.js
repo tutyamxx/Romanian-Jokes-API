@@ -47,8 +47,8 @@ const mongoQueryFind = async (databaseName, databaseCollection, dbQueryObject = 
     return dataResult;
 };
 
-// --| Get random stuff from MongoDB using a filter
-const mongoGetRandom = async(databaseName, databaseCollection, pipeLine) =>
+// --| Get from MongoDB using computed results via aggregation operations
+const mongoAggregate = async(databaseName, databaseCollection, pipeLine) =>
 {
     if (!databaseName || !databaseCollection) throw new Error("One of the parameters is missing!");
     if (!Array.isArray(pipeLine)) throw new Error("Parameter for pipeline must be an array of aggregation stages!");
@@ -138,5 +138,5 @@ const mongoCountCollectionItems = async (databaseName, databaseCollection) =>
 
 module.exports = {
     dbName, dbCollection,
-    mongoQueryFind, mongoGetRandom, mongoFindUnique, mongoCountCollectionItems
+    mongoQueryFind, mongoAggregate, mongoFindUnique, mongoCountCollectionItems
 };
