@@ -2,9 +2,9 @@ const mongodb = require("mongodb");
 const dbConfig = require("../config/credentials.json");
 
 // --| DB config for local and Heroku run
-const dbName = dbConfig?.mongodb_database_name?.trim() || process.env.DB_NAME;
-const dbCollection = dbConfig?.mongodb_database_collection?.trim() || process.env.DB_COLLECTION;
-const dbUri = dbConfig?.mongodb_uri?.trim() || process.env.DB_URI;
+const dbName = process.env.DB_NAME;
+const dbCollection = process.env.DB_COLLECTION;
+const dbUri = process.env.DB_URI;
 
 const connectOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
