@@ -16,12 +16,10 @@ const connectOptions =
 const isObject = (param) => Object.prototype.toString.call(param) === "[object Object]";
 
 // --| Query the MongoDB
-const mongoQueryFind = async (databaseName, databaseCollection, dbQueryObject = {}, sortCriteriaObject = {}, limit = 0) =>
+const mongoQueryFind = async (databaseName, databaseCollection, dbQueryObject = {}) =>
 {
     if (!databaseName || !databaseCollection) throw new Error("One of the parameters is missing!");
     if (!isObject(dbQueryObject)) throw new Error("Parameter for query must be an object!");
-    if (!isObject(sortCriteriaObject)) throw new Error("Parameter for sorting must be an object!");
-    if (!Number.isInteger(limit)) throw new Error("Parameter for limit must be an integer!");
 
     const client = await mongodb.MongoClient.connect(dbUri, connectOptions);
     let dataResult = [];
@@ -31,7 +29,7 @@ const mongoQueryFind = async (databaseName, databaseCollection, dbQueryObject = 
         const dbo = client.db(databaseName);
         const collection = dbo.collection(databaseCollection);
 
-        dataResult = await collection.find(dbQueryObject).sort(sortCriteriaObject).limit((limit < 0) ? 0 : limit).toArray().then((items) =>
+        dataResult = await collection.find(dbQueryObject).toArray().then((items) =>
         {
             client.close();
             return items;
