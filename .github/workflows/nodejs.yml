@@ -12,17 +12,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
-  - name: Get secret from base64
     env:
       DB_NAME: ${{ env.DB_NAME }}
       DB_COLLECTION: ${{ env.DB_COLLECTION }}
       DB_URI: ${{ secrets.DB_URI }}
       CI: true
-
-    run: |
-      echo Import certificate from secrets and regenerate the file
-      echo $DB_URI | base64 -d > $RUNNER_TEMP/my_production.keystore
 
     strategy:
       matrix:
@@ -35,7 +29,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-
+    - name: Get secred from base64
+      run: |
+        echo Import certificate from secrets and regenerate the file
+        echo $KEYSTORE_BASE64 | base64 -d > $RUNNER_TEMP/my_production.keystore
 
     - run: npm i -f
     - run: npm test
