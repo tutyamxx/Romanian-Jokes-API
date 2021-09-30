@@ -5,7 +5,12 @@ const dbName = process.env.DB_NAME;
 const dbCollection = process.env.DB_COLLECTION;
 const dbUri = process.env.DB_URI;
 
-const connectOptions = { useNewUrlParser: true, useUnifiedTopology: true };
+const connectOptions =
+{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    ssl: true
+};
 
 // --| Check if param is an Object
 const isObject = (param) => Object.prototype.toString.call(param) === "[object Object]";
