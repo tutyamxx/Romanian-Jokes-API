@@ -32,8 +32,8 @@ jobs:
 
     - name: Get secret from base64
       run: |
-      echo Import certificate from secrets and regenerate the file
-      echo $DB_URI | base64 -d > $RUNNER_TEMP/my_production.keystore
+        echo Import certificate from secrets and regenerate the file
+        echo $DB_URI | base64 -d > $RUNNER_TEMP/my_production.keystore
 
     - run: npm i -f
     - run: npm test
