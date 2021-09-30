@@ -25,9 +25,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
       env:
-        DB_NAME: ${{ secrets.DB_NAME }}
-        DB_COLLECTION: ${{ secrets.DB_COLLECTION }}
-        DB_URI: ${{ secrets.DB_URI }}
+        DB_NAME: '${{ secrets.DB_NAME }}'
+        DB_COLLECTION: '${{ secrets.DB_COLLECTION }}'
+        DB_URI: '${{ secrets.DB_URI }}'
 
     - run: npm i -f
     - run: npm test
