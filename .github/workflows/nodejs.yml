@@ -15,7 +15,7 @@ jobs:
     env:
       DB_NAME: 'romanian_jokes'
       DB_COLLECTION: 'jokes'
-      DB_URI: '${{ secrets.DB_URI }}'
+      DB_URI: 'mongodb+srv://dbTestAPI:${{ secrets.PASSWORD }}@cluster0.ir2hf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
       CI: true
 
     strategy:
