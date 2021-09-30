@@ -15,7 +15,7 @@ jobs:
     env:
       DB_NAME: 'romanian_jokes'
       DB_COLLECTION: 'jokes'
-      DB_URI: '{{ secrets.MONGODB_SRV }}:${{ secrets.PASSWORD }}@{{ secrets.CLUSTER }}'
+      DB_URI: '${{ secrets.MONGODB_SRV }}:${{ secrets.PASSWORD }}@${{ secrets.CLUSTER }}'
       CI: true
 
     strategy:
