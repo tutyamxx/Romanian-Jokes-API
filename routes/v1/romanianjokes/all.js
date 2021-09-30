@@ -4,7 +4,7 @@ const { dbName, dbCollection, mongoQueryFind } = require("../../../database/mong
 // --| Get all the jokes from the database
 router.get("/", async (req, res, next) =>
 {
-    const allJokes = await mongoQueryFind(dbName, dbCollection, {});
+    const allJokes = await mongoQueryFind(dbName, dbCollection, { });
 
     if (!allJokes.length) return res.status(404).json({ message: "No jokes available in the database" });
 

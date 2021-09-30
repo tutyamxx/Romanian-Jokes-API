@@ -186,7 +186,7 @@ describe("Testing API Endpoint Responses:", () =>
                 expect(response.body).to.be.a("object");
                 expect(Object.keys(response.body).length).to.be.equal(1);
                 expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
-                expect(response.body.message).to.be.equal("This joke type could not be found in the jokes list").to.not.be.empty;
+                expect(response.body.message).to.be.equal("This joke type could not be found in the database").to.not.be.empty;
 
                 done();
             });
@@ -228,7 +228,7 @@ describe("Testing API Endpoint Responses:", () =>
                 expect(response.body).to.be.a("object");
                 expect(Object.keys(response.body).length).to.be.equal(1);
                 expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
-                expect(response.body.message).to.be.equal("This joke type could not be found in the jokes list").to.not.be.empty;
+                expect(response.body.message).to.be.equal("This joke type could not be found in the database").to.not.be.empty;
 
                 done();
             });

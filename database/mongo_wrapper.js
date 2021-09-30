@@ -1,6 +1,6 @@
 const mongodb = require("mongodb");
 
-// --| DB config for local and Heroku run
+// --| DB environment variables config for local/GitHub Actions and Heroku run
 const dbName = process.env.DB_NAME;
 const dbCollection = process.env.DB_COLLECTION;
 const dbUri = process.env.DB_URI;

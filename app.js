@@ -11,6 +11,8 @@ const magic = require("express-routemagic");
 
 let app = express();
 
+const fifteenMinutesInMs = 900000;
+
 app.use(favicon(path.join(__dirname, "favicon.ico")));
 app.use(logger("dev", { skip: (req, res) => process.env.NODE_ENV === "test" }));
 app.use(express.json());
@@ -35,8 +37,15 @@ const APILimiter = rateLimit(
     message: { message: "Too many requests! Try again after 1 minute?" }
 });
 
+// --| Limit the API for 100 requests per minute only in /v1/ folder
 app.use("/v1/", APILimiter);
-magic.use(app, { routesFolder: "routes", invokerPath: __dirname, allowSameName: true });
+
+magic.use(app,
+{
+    routesFolder: "routes",
+    invokerPath: __dirname,
+    allowSameName: true
+});
 
 // --| 404 Response
 app.use((req, res, next) =>
@@ -53,6 +62,6 @@ app.use((err, req, res, next) =>
 });
 
 // --| Ping Heroku app and prevent it from sleeping every 15 minutes
-setInterval(() => https.get("https://romanian-jokes-api.herokuapp.com/api/romanianjokes/"), 900000);
+setInterval(() => https.get("https://romanian-jokes-api.herokuapp.com/api/romanianjokes/"), fifteenMinutesInMs);
 
 module.exports = app;

@@ -4,6 +4,7 @@ const { dbName, dbCollection, mongoGetRandom } = require("../../../database/mong
 // --| Get random 10 jokes from the database
 router.get("/", async (req, res, next) =>
 {
+    // --| Find 10 random jokes from our database
     const pipeLine = [{ $sample: { size: 10 } }];
 
     // --| Return 10 jokes as a JSON result
