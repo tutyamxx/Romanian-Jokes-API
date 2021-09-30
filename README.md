@@ -19,7 +19,7 @@
 * Clone this repo
 * Open the containing folder
 * Type **npm i && npm start**
-* Open the API in your browser http://localhost:3000/api/
+* Open the API in your browser http://localhost:3000/v1/
 
 # Usage
 
