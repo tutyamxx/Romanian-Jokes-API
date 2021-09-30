@@ -29,10 +29,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Get secred from base64
+    - name: Get the secret from base64
       run: |
         echo Import certificate from secrets and regenerate the file
-        echo $KEYSTORE_BASE64 | base64 -d > $RUNNER_TEMP/my_production.keystore
+        echo $DB_URI | base64 -d > $RUNNER_TEMP/my_production.keystore
 
     - run: npm i -f
     - run: npm test
