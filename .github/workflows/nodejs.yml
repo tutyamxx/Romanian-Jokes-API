@@ -15,7 +15,7 @@ jobs:
     env:
       DB_NAME: 'romanian_jokes'
       DB_COLLECTION: 'jokes'
-      DB_URI: ${{ secrets.DB_URI }}
+      DB_URI: '${{ secrets.DB_URI }}'
       CI: true
 
     strategy:
@@ -28,11 +28,6 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-
-    - name: Get the secret from base64
-      run: |
-        echo Import certificate from secrets and regenerate the file
-        echo $DB_URI | base64 --decode > config
 
     - run: npm i -f
     - run: npm test
