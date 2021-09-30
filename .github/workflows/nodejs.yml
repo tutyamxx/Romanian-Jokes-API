@@ -13,8 +13,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      DB_NAME: '${{ secrets.DB_NAME }}'
-      DB_COLLECTION: '${{ secrets.DB_COLLECTION }}'
+      DB_NAME: 'romanian_jokes'
+      DB_COLLECTION: 'jokes'
       DB_URI: '${{ secrets.MONGODB_SRV }}:${{ secrets.PASSWORD }}@${{ secrets.CLUSTER }}'
       CI: true
 
