@@ -10,7 +10,7 @@ $(document).ready()
     // --| Prevent enter/space spam
     $("#change-emoji").keydown(function (event)
     {
-        if(event.keyCode === 10 || event.keyCode === 13 || event.keyCode === 32)
+        if (event.keyCode === 10 || event.keyCode === 13 || event.keyCode === 32)
         {
             event.stopPropagation();
             event.preventDefault();
@@ -27,10 +27,7 @@ function capitalizeFirstLetter(string)
 function GetRandomRomanianJoke(bShake)
 {
     // --| Add a fake loading text until the API responds
-    if(bShake === true)
-    {
-        $("#romanian-jokes").effect("shake", { times: 2 }, 300);
-    }
+    if (bShake) $("#romanian-jokes").effect("shake", { times: 2 }, 300);
 
     $("textarea").empty();
     $("#romanian-jokes").append("Fetching a dumb joke...");
@@ -48,7 +45,7 @@ function GetRandomRomanianJoke(bShake)
     {
         szJokeRetrieved = data.joke.toString();
         szJokeCategory = data.joketype.toString();
-        iJokeNumber = parseInt(data.id);
+        iJokeNumber = parseInt(data._id);
 
     })).done(function ()
     {
@@ -59,7 +56,7 @@ function GetRandomRomanianJoke(bShake)
         $("#joke-category").empty().text("Category: " + capitalizeFirstLetter(szJokeCategory));
 
         // --| Clear the joke number div and refresh with the current number
-        $("#joke-number").empty().html('<a href="' + requestJokeFromAPI + '/' + iJokeNumber + '" target="_blank">Joke ID: #' + iJokeNumber + '</a>');
+        $("#joke-number").empty().html(`<a href="${requestJokeFromAPI}/id/${iJokeNumber}" target="_blank">Joke ID: #${iJokeNumber}</a>`);
 
     }).fail(function ()
     {
