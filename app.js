@@ -9,7 +9,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const magic = require("express-routemagic");
 
-let app = express();
+const app = express();
 
 const fifteenMinutesInMs = 900000;
 
@@ -20,8 +20,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-// --| Enable CORS for all requests
-app.use(cors());
+// --| Enable CORS for GET method only
+const corsOptions = {
+    origin: "*",
+    optionsSuccessStatus: 200,
+    methods: ["GET"]
+};
+
+app.use(cors(corsOptions));
 
 // --| Need this set for Heroku
 app.set("trust proxy", 1);
