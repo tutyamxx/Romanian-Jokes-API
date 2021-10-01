@@ -5,7 +5,7 @@ const chaiHttp = require("chai-http");
 const { expect } = chai;
 chai.use(chaiHttp);
 
-describe("Testing API Endpoint Responses:", () => {
+describe("🕵️ Testing normal API endpoint responses behaviour", () => {
     describe("🎯 GET default path of the API /api/", () => {
         it("Should return a message that it is working with a status code of OK (200)", (done) => {
             chai.request(app).get("/v1/").end((err, response) => {
@@ -225,5 +225,6 @@ describe("Testing API Endpoint Responses:", () => {
         });
     });
 
+    beforeEach(() => chai.request(app).close());
     afterEach(() => chai.request(app).close());
 });
