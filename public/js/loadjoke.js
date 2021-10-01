@@ -30,6 +30,7 @@ function GetRandomRomanianJoke(bShake)
     if (bShake) $("#romanian-jokes").effect("shake", { times: 2 }, 300);
 
     $("textarea").empty();
+    $("#joke-number").empty();
     $("#romanian-jokes").append("Fetching a dumb joke...");
     $("#joke-category").empty().text("Category: Fetching...");
 
