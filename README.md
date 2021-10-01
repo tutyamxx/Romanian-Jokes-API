@@ -9,7 +9,7 @@
 
 # IMPORTANT !
 * If you get an error while accessing the URL's is most likely that I'm out of free monthly Heroku Dyno hours 🤐
-* Queries and database are fast, however my free `dyno` is hosted in USA, so `~1-2 seconds` latency might occur.
+* Queries and database are fast, however my free `dyno` is hosted in USA and the database is served on Atlas on an AWS EU Region, so `~1-2 seconds` latency might occur.
 
 # Romanian Jokes API 👌😹
  * First romanian API for romanian jokes ever! Over **600** jokes available!
