@@ -63,7 +63,7 @@ app.use((err, req, res, next) => {
 });
 
 // --| Log the info on server startup
-app.listen(port, () => console.log(`🖥️  Server runs and is listening on port \x1b[34m${port}\x1b[0m.`));
+app.listen(port, () => process.env.NODE_ENV !== "test" ? console.log(`🖥️  Server runs and is listening on port \x1b[34m${port}\x1b[0m.`) : "");
 
 // --| Ping Heroku app and prevent it from sleeping every 15 minutes
 setInterval(() => https.get("https://romanian-jokes-api.herokuapp.com/api/romanianjokes/"), fifteenMinutesInMs);
