@@ -29,6 +29,7 @@ function GetRandomRomanianJoke(bShake)
     // --| Add a fake loading text until the API responds
     if (bShake) $("#romanian-jokes").effect("shake", { times: 2 }, 300);
 
+    $("#change-emoji").attr("disabled", true);
     $("textarea").empty();
     $("#joke-number").empty();
     $("#romanian-jokes").append("Fetching a dumb joke...");
@@ -55,6 +56,7 @@ function GetRandomRomanianJoke(bShake)
         $("textarea").empty();
         $("#romanian-jokes").append(szJokeRetrieved);
         $("#joke-category").empty().text("Category: " + capitalizeFirstLetter(szJokeCategory));
+        $("#change-emoji").removeAttr("disabled");
 
         // --| Clear the joke number div and refresh with the current number
         $("#joke-number").empty().html(`<a href="${requestJokeFromAPI}/id/${iJokeNumber}" target="_blank">Joke ID: #${iJokeNumber}</a>`);
@@ -68,6 +70,7 @@ function GetRandomRomanianJoke(bShake)
         // --| Clear the textarea and add new freshly generated response
         $("textarea").empty();
         $("#romanian-jokes").append(szJokeRetrieved);
+        $("#change-emoji").removeAttr("disabled");
 
         // --| Clear the Joke ID link
         $("#joke-number").empty();
