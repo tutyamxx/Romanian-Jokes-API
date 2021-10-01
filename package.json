@@ -1,6 +1,6 @@
 {
     "name": "romanian-jokes-api",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "private": true,
     "scripts": {
         "start": "node ./bin/www",
@@ -14,7 +14,6 @@
         "express-rate-limit": "^5.1.1",
         "express-routemagic": "^2.0.6",
         "helmet": "^4.1.1",
-        "jade": "^0.29.0",
         "mongodb": "^4.1.2",
         "morgan": "^1.10.0",
         "serve-favicon": "^2.5.0"

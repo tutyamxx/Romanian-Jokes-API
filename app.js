@@ -12,6 +12,7 @@ const magic = require("express-routemagic");
 const app = express();
 
 const fifteenMinutesInMs = 900000;
+const port = process.env.PORT || 3000;
 
 app.use(favicon(path.join(__dirname, "favicon.ico")));
 app.use(logger("dev", { skip: (req, res) => process.env.NODE_ENV === "test" }));
@@ -60,6 +61,9 @@ app.use((err, req, res, next) => {
     res.locals.message = err.message;
     res.locals.error = req.app.get("env") === "development" ? err : { };
 });
+
+// --| Log the info on server startup
+app.listen(port, () => console.log(`🖥️  Server runs and is listening on port \x1b[34m${port}\x1b[0m.`));
 
 // --| Ping Heroku app and prevent it from sleeping every 15 minutes
 setInterval(() => https.get("https://romanian-jokes-api.herokuapp.com/api/romanianjokes/"), fifteenMinutesInMs);
