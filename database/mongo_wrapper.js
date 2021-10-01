@@ -9,8 +9,7 @@ const connectOptions =
 {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    ssl: true,
-    poolSize: 1
+    ssl: true
 };
 
 // --| Check if param is an Object
