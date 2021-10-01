@@ -5,8 +5,7 @@ const dbName = process.env.DB_NAME;
 const dbCollection = process.env.DB_COLLECTION;
 const dbUri = process.env.DB_URI;
 
-const connectOptions =
-{
+const connectOptions = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     ssl: true
@@ -16,28 +15,23 @@ const connectOptions =
 const isObject = (param) => Object.prototype.toString.call(param) === "[object Object]";
 
 // --| Query the MongoDB
-const mongoQueryFind = async (databaseName, databaseCollection, dbQueryObject = {}) =>
-{
+const mongoQueryFind = async (databaseName, databaseCollection, dbQueryObject = {}) => {
     if (!databaseName || !databaseCollection) throw new Error("One of the parameters is missing!");
     if (!isObject(dbQueryObject)) throw new Error("Parameter for query must be an object!");
 
     const client = await mongodb.MongoClient.connect(dbUri, connectOptions);
     let dataResult = [];
 
-    try
-    {
+    try {
         const dbo = client.db(databaseName);
         const collection = dbo.collection(databaseCollection);
 
-        dataResult = await collection.find(dbQueryObject).toArray().then((items) =>
-        {
+        dataResult = await collection.find(dbQueryObject).toArray().then((items) => {
             client.close();
             return items;
         });
-    }
 
-    catch (error)
-    {
+    } catch (error) {
         console.log(error.message);
         client.close();
     }
@@ -46,28 +40,23 @@ const mongoQueryFind = async (databaseName, databaseCollection, dbQueryObject = 
 };
 
 // --| Get from MongoDB using computed results via aggregation operations
-const mongoAggregate = async(databaseName, databaseCollection, pipeLine) =>
-{
+const mongoAggregate = async(databaseName, databaseCollection, pipeLine) => {
     if (!databaseName || !databaseCollection) throw new Error("One of the parameters is missing!");
     if (!Array.isArray(pipeLine)) throw new Error("Parameter for pipeline must be an array of aggregation stages!");
 
     const client = await mongodb.MongoClient.connect(dbUri, connectOptions);
     let dataResult = [];
 
-    try
-    {
+    try {
         const dbo = client.db(databaseName);
         const collection = dbo.collection(databaseCollection);
 
-        dataResult = await collection.aggregate(pipeLine).toArray().then((items) =>
-        {
+        dataResult = await collection.aggregate(pipeLine).toArray().then((items) => {
             client.close();
             return items;
         });
-    }
 
-    catch (error)
-    {
+    } catch (error) {
         console.log(error.message);
         client.close();
     }
@@ -84,20 +73,15 @@ const mongoFindUnique = async (databaseName, databaseCollection, dataFilter) =>
     const client = await mongodb.MongoClient.connect(dbUri, connectOptions);
     let dataResult = [];
 
-    try
-    {
+    try {
         const dbo = client.db(databaseName);
         const collection = dbo.collection(databaseCollection);
 
-        dataResult = await collection.distinct(dataFilter).then((items) =>
-        {
+        dataResult = await collection.distinct(dataFilter).then((items) => {
             client.close();
             return items;
         });
-    }
-
-    catch (error)
-    {
+    } catch (error) {
         console.log(error.message);
         client.close();
     }
@@ -106,27 +90,22 @@ const mongoFindUnique = async (databaseName, databaseCollection, dataFilter) =>
 };
 
 // --| Count the items from specified database and collection
-const mongoCountCollectionItems = async (databaseName, databaseCollection) =>
-{
+const mongoCountCollectionItems = async (databaseName, databaseCollection) => {
     if (!databaseName || !databaseCollection) throw new Error("One of the parameters is missing!");
 
     const client = await mongodb.MongoClient.connect(dbUri, connectOptions);
     let dataResult = 0;
 
-    try
-    {
+    try {
         const dbo = client.db(databaseName);
         const collection = dbo.collection(databaseCollection);
 
-        dataResult = await collection.count({ }).then((number) =>
-        {
+        dataResult = await collection.count({ }).then((number) => {
             client.close();
             return (number + 1);
         });
-    }
 
-    catch (error)
-    {
+    } catch (error) {
         console.log(error.message);
         client.close();
     }

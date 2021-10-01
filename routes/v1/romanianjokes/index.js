@@ -2,8 +2,7 @@ const router = require("express").Router();
 const { dbName, dbCollection, mongoAggregate, mongoQueryFind } = require("../../../database/mongo_wrapper.js");
 
 // --| Get a random Romanian joke from the database and return it as JSON object response
-router.get("/", async (req, res, next) =>
-{
+router.get("/", async (req, res, next) => {
     // --| Get a random joke
     const pipeLine = [{ $sample: { size: 1 } }];
 
@@ -11,8 +10,7 @@ router.get("/", async (req, res, next) =>
 });
 
 // --| Get a specific joke by id
-router.get("/id/:id?", async (req, res, next) =>
-{
+router.get("/id/:id?", async (req, res, next) => {
     // --| Get the joke id specified in the parameter
     const getJokeId = parseInt(req.params.id) || 0;
     const getSpecificJokeById = await mongoQueryFind(dbName, dbCollection, { _id: getJokeId });

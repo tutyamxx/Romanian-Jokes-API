@@ -30,8 +30,7 @@ app.set("trust proxy", 1);
 app.use(helmet());
 
 // --| Limit the API for 100 requests per minute only
-const APILimiter = rateLimit(
-{
+const APILimiter = rateLimit({
     windowMs: 60000,
     max: 100,
     message: { message: "Too many requests! Try again after 1 minute?" }
@@ -40,22 +39,17 @@ const APILimiter = rateLimit(
 // --| Limit the API for 100 requests per minute only in /v1/ folder
 app.use("/v1/", APILimiter);
 
-magic.use(app,
-{
+magic.use(app, {
     routesFolder: "routes",
     invokerPath: __dirname,
     allowSameName: true
 });
 
 // --| 404 Response
-app.use((req, res, next) =>
-{
-    res.status(404).json({ message: "Sorry, can't find the page you are looking for 👀" });
-});
+app.use((req, res, next) => res.status(404).json({ message: "Sorry, can't find the page you are looking for 👀" }));
 
 // --| Error handler
-app.use((err, req, res, next) =>
-{
+app.use((err, req, res, next) => {
     // --| Set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get("env") === "development" ? err : { };

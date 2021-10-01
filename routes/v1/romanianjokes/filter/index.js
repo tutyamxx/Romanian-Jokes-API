@@ -2,8 +2,7 @@ const router = require("express").Router();
 const { dbName, dbCollection, mongoQueryFind, mongoAggregate } = require("../../../../database/mongo_wrapper.js");
 
 // --| Get all the jokes filtered by joke type
-router.get("/:joketype?", async (req, res, next) =>
-{
+router.get("/:joketype?", async (req, res, next) => {
     // --| Get the joke type specified in the parameter
     const paramJokeType = req.params.joketype;
     const getJokeType = await mongoQueryFind(dbName, dbCollection, { joketype: paramJokeType });
@@ -15,14 +14,12 @@ router.get("/:joketype?", async (req, res, next) =>
     return res.status(200).json(getJokeType);
 });
 
-router.get("/:joketype/random", async (req, res, next) =>
-{
+router.get("/:joketype/random", async (req, res, next) => {
     // --| Get the joke type specified in the parameter
     const paramJokeType = req.params.joketype;
 
     // --| Find a random joke from the database and filter it by joketype
-    const pipeLine =
-    [
+    const pipeLine = [
         { $match: { joketype: paramJokeType } },
         { $sample: { size: 1 } }
     ];

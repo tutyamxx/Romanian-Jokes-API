@@ -2,8 +2,7 @@ const router = require("express").Router();
 const { dbName, dbCollection, mongoAggregate } = require("../../../database/mongo_wrapper.js");
 
 // --| Get random 10 jokes from the database
-router.get("/", async (req, res, next) =>
-{
+router.get("/", async (req, res, next) => {
     // --| Find 10 random jokes from our database
     const pipeLine = [{ $sample: { size: 10 } }];
 
