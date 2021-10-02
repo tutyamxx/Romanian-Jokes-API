@@ -15,7 +15,7 @@ const connectOptions = {
 const isObject = (param) => Object.prototype.toString.call(param) === "[object Object]";
 
 // --| Query the MongoDB
-const mongoQueryFind = async (databaseName, databaseCollection, dbQueryObject = {}) => {
+const mongoQueryFind = async (databaseName, databaseCollection, dbQueryObject = { }) => {
     if (!databaseName || !databaseCollection) throw new Error("One of the parameters is missing!");
     if (!isObject(dbQueryObject)) throw new Error("Parameter for query must be an object!");
 

@@ -46,6 +46,7 @@ const APILimiter = rateLimit({
 // --| Limit the API for 100 requests per minute only in /v1/ folder
 app.use("/v1/", APILimiter);
 
+// --| Automatic route everything in routes folder
 magic.use(app, {
     routesFolder: "routes",
     invokerPath: __dirname,
@@ -66,6 +67,6 @@ app.use((err, req, res, next) => {
 app.listen(port, () => process.env.NODE_ENV !== "test" ? console.log(`🖥️  Server runs and is listening on port \x1b[34m${port}\x1b[0m.`) : "");
 
 // --| Ping Heroku app and prevent it from sleeping every 15 minutes
-setInterval(() => https.get("https://romanian-jokes-api.herokuapp.com/api/romanianjokes/"), fifteenMinutesInMs);
+setInterval(() => https.get("https://romanian-jokes-api.herokuapp.com/v1/romanianjokes/"), fifteenMinutesInMs);
 
 module.exports = app;

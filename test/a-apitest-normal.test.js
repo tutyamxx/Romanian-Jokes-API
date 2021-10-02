@@ -197,12 +197,14 @@ describe("🕵️ Testing normal API endpoint responses behaviour", () => {
 
     describe("🎯 GET a random non existing page using an invalid query or path from API path /api/ ", () => {
         it("Should return a status code of NOT FOUND (404) when there is a non existing page specified in the query", (done) => {
+            const errorMessage = "Sorry, can't find the page you are looking for 👀";
+
             chai.request(app).get("/v1/errorshouldreturn").end((err, response) => {
                 expect(response).to.have.status(404);
                 expect(response.body).to.be.a("object");
                 expect(Object.keys(response.body).length).to.be.equal(1);
                 expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
-                expect(response.body.message).to.be.equal("Sorry, can't find the page you are looking for 👀").to.not.be.empty;
+                expect(response.body.message).to.be.equal(errorMessage).to.not.be.empty;
             });
 
             chai.request(app).get("/v1/romanianjoke").end((err, response) => {
@@ -210,7 +212,7 @@ describe("🕵️ Testing normal API endpoint responses behaviour", () => {
                 expect(response.body).to.be.a("object");
                 expect(Object.keys(response.body).length).to.be.equal(1);
                 expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
-                expect(response.body.message).to.be.equal("Sorry, can't find the page you are looking for 👀").to.not.be.empty;
+                expect(response.body.message).to.be.equal(errorMessage).to.not.be.empty;
             });
 
             chai.request(app).get("/v1/romanianjoke/countt").end((err, response) => {
@@ -218,7 +220,7 @@ describe("🕵️ Testing normal API endpoint responses behaviour", () => {
                 expect(response.body).to.be.a("object");
                 expect(Object.keys(response.body).length).to.be.equal(1);
                 expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
-                expect(response.body.message).to.be.equal("Sorry, can't find the page you are looking for 👀").to.not.be.empty;
+                expect(response.body.message).to.be.equal(errorMessage).to.not.be.empty;
             });
 
             done();

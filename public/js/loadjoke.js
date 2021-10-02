@@ -4,7 +4,7 @@ const randomCancerEmoji = [ "🤣", "😂", "😹", "🤪", "😸", "😁", "�
 // --| Load a random romanian joke on page load
 $(document).ready( function() {
     // --| Generate a random joke on page load
-    GetRandomRomanianJoke(false);
+    getRandomRomanianJoke(false);
 
     // --| Prevent enter/space spam
     $("#change-emoji").keydown(function (event) {
@@ -20,7 +20,7 @@ function capitalizeFirstLetter(string) {
 };
 
 // --| Function to get a random romanian joke
-function GetRandomRomanianJoke(bShake) {
+function getRandomRomanianJoke(bShake) {
     // --| Add a fake loading text until the API responds
     if (bShake) $("#romanian-jokes").effect("shake", { times: 2 }, 300);
 
