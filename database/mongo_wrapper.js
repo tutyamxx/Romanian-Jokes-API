@@ -1,4 +1,4 @@
-const mongodb = require("mongodb");
+const MongoClient = require("mongodb").MongoClient;
 
 // --| DB environment variables config for local/GitHub Actions and Heroku run
 const dbName = process.env.DB_NAME;
@@ -19,7 +19,7 @@ const mongoQueryFind = async (databaseName, databaseCollection, dbQueryObject = 
     if (!databaseName || !databaseCollection) throw new Error("One of the parameters is missing!");
     if (!isObject(dbQueryObject)) throw new Error("Parameter for query must be an object!");
 
-    const client = await mongodb.MongoClient.connect(dbUri, connectOptions);
+    const client = await MongoClient.connect(dbUri, connectOptions);
     let dataResult = [];
 
     try {
@@ -44,7 +44,7 @@ const mongoAggregate = async(databaseName, databaseCollection, pipeLine) => {
     if (!databaseName || !databaseCollection) throw new Error("One of the parameters is missing!");
     if (!Array.isArray(pipeLine)) throw new Error("Parameter for pipeline must be an array of aggregation stages!");
 
-    const client = await mongodb.MongoClient.connect(dbUri, connectOptions);
+    const client = await MongoClient.connect(dbUri, connectOptions);
     let dataResult = [];
 
     try {
@@ -70,7 +70,7 @@ const mongoFindUnique = async (databaseName, databaseCollection, dataFilter) =>
     if (!databaseName || !databaseCollection || !dataFilter) throw new Error("One of the parameters is missing!");
     if (!dataFilter.length || typeof dataFilter !== "string") throw new Error("Filter parameter must be a string!");
 
-    const client = await mongodb.MongoClient.connect(dbUri, connectOptions);
+    const client = await MongoClient.connect(dbUri, connectOptions);
     let dataResult = [];
 
     try {
@@ -93,7 +93,7 @@ const mongoFindUnique = async (databaseName, databaseCollection, dataFilter) =>
 const mongoCountCollectionItems = async (databaseName, databaseCollection) => {
     if (!databaseName || !databaseCollection) throw new Error("One of the parameters is missing!");
 
-    const client = await mongodb.MongoClient.connect(dbUri, connectOptions);
+    const client = await MongoClient.connect(dbUri, connectOptions);
     let dataResult = 0;
 
     try {
@@ -102,7 +102,7 @@ const mongoCountCollectionItems = async (databaseName, databaseCollection) => {
 
         dataResult = await collection.count({ }).then((number) => {
             client.close();
-            return (number + 1);
+            return number;
         });
 
     } catch (error) {
