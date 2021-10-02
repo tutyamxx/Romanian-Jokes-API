@@ -1,5 +1,4 @@
-body
-{
+body {
     background-color: #F6CD64;
     background-image: url("../images/backgroundemoji.jpg");
     background-repeat: repeat;
@@ -7,14 +6,12 @@ body
     height: 100%;
 }
 
-*
-{
+* {
     box-sizing:border-box;           /* easier box-model calculations */
     -webkit-box-sizing: border-box;
 }
 
-h1, #joke-category
-{
+h1, #joke-category {
     font-family: 'Special Elite', cursive;
     color: whitesmoke;
     text-shadow: 2px 2px 4px #000000;
@@ -22,8 +19,7 @@ h1, #joke-category
     font-weight: bolder;
 }
 
-#forkme
-{
+#forkme {
     position: fixed;
     top: 0;
     right: 0;
@@ -31,8 +27,7 @@ h1, #joke-category
     max-height: 100%;
 }
 
-textarea
-{
+textarea {
     -moz-box-shadow: 0 0 8px #239CF5;
     -webkit-box-shadow: 0 0 8px #239CF5;
     box-shadow: 0 0 8px #239CF5;
@@ -56,14 +51,12 @@ textarea
     position: relative;
 }
 
-input[type="text"], textarea
-{
+input[type="text"], textarea {
     background-color: whitesmoke;
     color: #111720;
 }
 
-.button
-{
+.button {
     font-family: 'Special Elite', cursive;
     -moz-box-shadow: 0 0 8px #239CF5;
     -webkit-box-shadow: 0 0 8px #239CF5;
@@ -84,8 +77,7 @@ input[type="text"], textarea
     max-height: 100%;
 }
 
-#joke-number
-{
+#joke-number {
     font-family: 'Special Elite', cursive;
     color: whitesmoke;
     font-weight: bolder;
@@ -94,19 +86,16 @@ input[type="text"], textarea
     position: sticky;
 }
 
-#button-wrapper
-{
+#button-wrapper {
     text-align: center;
     margin: auto;
 }
 
-::selection
-{
+::selection {
     background: #F85051; /* WebKit/Blink Browsers */
 }
 
-::-moz-selection
-{
+::-moz-selection {
     background: #F85051; /* Gecko Browsers */
 }
 
