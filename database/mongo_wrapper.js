@@ -1,4 +1,7 @@
-const MongoClient = require("mongodb").MongoClient;
+/* eslint-disable no-console */
+/* eslint-disable no-undef */
+
+const MongoClient = require('mongodb').MongoClient;
 
 // --| DB environment variables config for local/GitHub Actions and Heroku run
 const dbName = process.env.DB_NAME;
@@ -12,12 +15,12 @@ const connectOptions = {
 };
 
 // --| Check if param is an Object
-const isObject = (param) => Object.prototype.toString.call(param) === "[object Object]";
+const isObject = (param) => Object.prototype.toString.call(param) === '[object Object]';
 
 // --| Query the MongoDB
 const mongoQueryFind = async (databaseName, databaseCollection, dbQueryObject = { }) => {
-    if (!databaseName || !databaseCollection) throw new Error("One of the parameters is missing!");
-    if (!isObject(dbQueryObject)) throw new Error("Parameter for query must be an object!");
+    if (!databaseName || !databaseCollection) throw new Error('One of the parameters is missing!');
+    if (!isObject(dbQueryObject)) throw new Error('Parameter for query must be an object!');
 
     const client = await MongoClient.connect(dbUri, connectOptions);
     let dataResult = [];
@@ -30,7 +33,6 @@ const mongoQueryFind = async (databaseName, databaseCollection, dbQueryObject = 
             client.close();
             return items;
         });
-
     } catch (error) {
         console.log(error.message);
         client.close();
@@ -40,9 +42,9 @@ const mongoQueryFind = async (databaseName, databaseCollection, dbQueryObject = 
 };
 
 // --| Get from MongoDB using computed results via aggregation operations
-const mongoAggregate = async(databaseName, databaseCollection, pipeLine) => {
-    if (!databaseName || !databaseCollection) throw new Error("One of the parameters is missing!");
-    if (!Array.isArray(pipeLine)) throw new Error("Parameter for pipeline must be an array of aggregation stages!");
+const mongoAggregate = async (databaseName, databaseCollection, pipeLine) => {
+    if (!databaseName || !databaseCollection) throw new Error('One of the parameters is missing!');
+    if (!Array.isArray(pipeLine)) throw new Error('Parameter for pipeline must be an array of aggregation stages!');
 
     const client = await MongoClient.connect(dbUri, connectOptions);
     let dataResult = [];
@@ -55,7 +57,6 @@ const mongoAggregate = async(databaseName, databaseCollection, pipeLine) => {
             client.close();
             return items;
         });
-
     } catch (error) {
         console.log(error.message);
         client.close();
@@ -65,10 +66,9 @@ const mongoAggregate = async(databaseName, databaseCollection, pipeLine) => {
 };
 
 // --| Find something unique in the MongoDB using distinct and applying a string as filter
-const mongoFindUnique = async (databaseName, databaseCollection, dataFilter) =>
-{
-    if (!databaseName || !databaseCollection || !dataFilter) throw new Error("One of the parameters is missing!");
-    if (!dataFilter.length || typeof dataFilter !== "string") throw new Error("Filter parameter must be a string!");
+const mongoFindUnique = async (databaseName, databaseCollection, dataFilter) => {
+    if (!databaseName || !databaseCollection || !dataFilter) throw new Error('One of the parameters is missing!');
+    if (!dataFilter.length || typeof dataFilter !== 'string') throw new Error('Filter parameter must be a string!');
 
     const client = await MongoClient.connect(dbUri, connectOptions);
     let dataResult = [];
@@ -91,7 +91,7 @@ const mongoFindUnique = async (databaseName, databaseCollection, dataFilter) =>
 
 // --| Count the items from specified database and collection
 const mongoCountCollectionItems = async (databaseName, databaseCollection) => {
-    if (!databaseName || !databaseCollection) throw new Error("One of the parameters is missing!");
+    if (!databaseName || !databaseCollection) throw new Error('One of the parameters is missing!');
 
     const client = await MongoClient.connect(dbUri, connectOptions);
     let dataResult = 0;
@@ -104,14 +104,13 @@ const mongoCountCollectionItems = async (databaseName, databaseCollection) => {
             client.close();
             return number;
         });
-
     } catch (error) {
         console.log(error.message);
         client.close();
     }
 
     return dataResult;
-}
+};
 
 module.exports = {
     dbName, dbCollection,

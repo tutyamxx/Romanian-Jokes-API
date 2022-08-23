@@ -1,100 +1,100 @@
-const app = require("../app.js");
-const chai = require("chai");
-const chaiHttp = require("chai-http");
+const app = require('../app.js');
+const chai = require('chai');
+const chaiHttp = require('chai-http');
 
 const { expect } = chai;
 chai.use(chaiHttp);
 
-describe("🕵️ Testing method that is not allowed: PURGE -> for all endpoint behaviour responses", () => {
-    describe("🎯 Try to use the PURGE method", () => {
-        it("Should return and error with a status code of NOT FOUND (404) on all endpoints", (done) => {
-            const errorMessage = "Sorry, can't find the page you are looking for 👀";
+describe('🕵️ Testing method that is not allowed: PURGE -> for all endpoint behaviour responses', () => {
+    describe('🎯 Try to use the PURGE method', () => {
+        it('Should return and error with a status code of NOT FOUND (404) on all endpoints', (done) => {
+            const errorMessage = 'Sorry, can\'t find the page you are looking for 👀';
 
-            chai.request(app).purge("/v1/").end((err, response) => {
+            chai.request(app).purge('/v1/').end((err, response) => {
                 expect(response).to.have.status(404);
-                expect(response.body).to.be.a("object");
+                expect(response.body).to.be.a('object');
                 expect(Object.keys(response.body).length).to.be.equal(1);
-                expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
+                expect(response.body).to.have.a.property('message').and.to.be.a('string').and.to.have.length.above(0);
                 expect(response.body.message).to.be.equal(errorMessage).to.not.be.empty;
             });
 
-            chai.request(app).purge("/v1/romanianjokes").end((err, response) => {
+            chai.request(app).purge('/v1/romanianjokes').end((err, response) => {
                 expect(response).to.have.status(404);
-                expect(response.body).to.be.a("object");
+                expect(response.body).to.be.a('object');
                 expect(Object.keys(response.body).length).to.be.equal(1);
-                expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
+                expect(response.body).to.have.a.property('message').and.to.be.a('string').and.to.have.length.above(0);
                 expect(response.body.message).to.be.equal(errorMessage).to.not.be.empty;
             });
 
-            chai.request(app).purge("/v1/romanianjokes/version").end((err, response) => {
+            chai.request(app).purge('/v1/romanianjokes/version').end((err, response) => {
                 expect(response).to.have.status(404);
-                expect(response.body).to.be.a("object");
+                expect(response.body).to.be.a('object');
                 expect(Object.keys(response.body).length).to.be.equal(1);
-                expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
+                expect(response.body).to.have.a.property('message').and.to.be.a('string').and.to.have.length.above(0);
                 expect(response.body.message).to.be.equal(errorMessage).to.not.be.empty;
             });
 
-            chai.request(app).purge("/v1/romanianjokes/all").end((err, response) => {
+            chai.request(app).purge('/v1/romanianjokes/all').end((err, response) => {
                 expect(response).to.have.status(404);
-                expect(response.body).to.be.a("object");
+                expect(response.body).to.be.a('object');
                 expect(Object.keys(response.body).length).to.be.equal(1);
-                expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
+                expect(response.body).to.have.a.property('message').and.to.be.a('string').and.to.have.length.above(0);
                 expect(response.body.message).to.be.equal(errorMessage).to.not.be.empty;
             });
 
-            chai.request(app).purge("/v1/romanianjokes/count").end((err, response) => {
+            chai.request(app).purge('/v1/romanianjokes/count').end((err, response) => {
                 expect(response).to.have.status(404);
-                expect(response.body).to.be.a("object");
+                expect(response.body).to.be.a('object');
                 expect(Object.keys(response.body).length).to.be.equal(1);
-                expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
+                expect(response.body).to.have.a.property('message').and.to.be.a('string').and.to.have.length.above(0);
                 expect(response.body.message).to.be.equal(errorMessage).to.not.be.empty;
             });
 
-            chai.request(app).purge("/v1/romanianjokes/random_ten").end((err, response) => {
+            chai.request(app).purge('/v1/romanianjokes/random_ten').end((err, response) => {
                 expect(response).to.have.status(404);
-                expect(response.body).to.be.a("object");
+                expect(response.body).to.be.a('object');
                 expect(Object.keys(response.body).length).to.be.equal(1);
-                expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
+                expect(response.body).to.have.a.property('message').and.to.be.a('string').and.to.have.length.above(0);
                 expect(response.body.message).to.be.equal(errorMessage).to.not.be.empty;
             });
 
-            chai.request(app).purge("/v1/romanianjokes/categories").end((err, response) => {
+            chai.request(app).purge('/v1/romanianjokes/categories').end((err, response) => {
                 expect(response).to.have.status(404);
-                expect(response.body).to.be.a("object");
+                expect(response.body).to.be.a('object');
                 expect(Object.keys(response.body).length).to.be.equal(1);
-                expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
+                expect(response.body).to.have.a.property('message').and.to.be.a('string').and.to.have.length.above(0);
                 expect(response.body.message).to.be.equal(errorMessage).to.not.be.empty;
             });
 
-            chai.request(app).purge("/v1/romanianjokes/id/123").end((err, response) => {
+            chai.request(app).purge('/v1/romanianjokes/id/123').end((err, response) => {
                 expect(response).to.have.status(404);
-                expect(response.body).to.be.a("object");
+                expect(response.body).to.be.a('object');
                 expect(Object.keys(response.body).length).to.be.equal(1);
-                expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
+                expect(response.body).to.have.a.property('message').and.to.be.a('string').and.to.have.length.above(0);
                 expect(response.body.message).to.be.equal(errorMessage).to.not.be.empty;
             });
 
-            chai.request(app).purge("/v1/romanianjokes/filter").end((err, response) => {
+            chai.request(app).purge('/v1/romanianjokes/filter').end((err, response) => {
                 expect(response).to.have.status(404);
-                expect(response.body).to.be.a("object");
+                expect(response.body).to.be.a('object');
                 expect(Object.keys(response.body).length).to.be.equal(1);
-                expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
+                expect(response.body).to.have.a.property('message').and.to.be.a('string').and.to.have.length.above(0);
                 expect(response.body.message).to.be.equal(errorMessage).to.not.be.empty;
             });
 
-            chai.request(app).purge("/v1/romanianjokes/filter/blonde").end((err, response) => {
+            chai.request(app).purge('/v1/romanianjokes/filter/blonde').end((err, response) => {
                 expect(response).to.have.status(404);
-                expect(response.body).to.be.a("object");
+                expect(response.body).to.be.a('object');
                 expect(Object.keys(response.body).length).to.be.equal(1);
-                expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
+                expect(response.body).to.have.a.property('message').and.to.be.a('string').and.to.have.length.above(0);
                 expect(response.body.message).to.be.equal(errorMessage).to.not.be.empty;
             });
 
-            chai.request(app).purge("/v1/romanianjokes/filter/blonde/random").end((err, response) => {
+            chai.request(app).purge('/v1/romanianjokes/filter/blonde/random').end((err, response) => {
                 expect(response).to.have.status(404);
-                expect(response.body).to.be.a("object");
+                expect(response.body).to.be.a('object');
                 expect(Object.keys(response.body).length).to.be.equal(1);
-                expect(response.body).to.have.a.property("message").and.to.be.a("string").and.to.have.length.above(0);
+                expect(response.body).to.have.a.property('message').and.to.be.a('string').and.to.have.length.above(0);
                 expect(response.body.message).to.be.equal(errorMessage).to.not.be.empty;
             });
 
