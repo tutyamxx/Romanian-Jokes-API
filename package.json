@@ -2,22 +2,19 @@
     "name": "romanian-jokes-api",
     "version": "2.0.3",
     "private": true,
-    "engines": {
-        "node": "16.x"
-    },
     "scripts": {
-        "start": "node ./bin/www",
-        "test": "export NODE_ENV=test&& mocha"
+        "start": "node --optimize_for_size --max_old_space_size=460 --gc_interval=100 ./bin/www ",
+        "test": "export NODE_ENV=test && mocha"
     },
     "dependencies": {
         "cookie-parser": "^1.4.6",
         "cors": "^2.8.5",
         "debug": "^4.3.4",
         "express": "^4.18.1",
-        "express-rate-limit": "^6.5.1",
+        "express-rate-limit": "^6.6.0",
         "express-routemagic": "^2.0.8",
-        "helmet": "^5.1.1",
-        "mongodb": "^4.9.0",
+        "helmet": "^6.0.0",
+        "mongodb": "^4.9.1",
         "morgan": "^1.10.0",
         "serve-favicon": "^2.5.0"
     },
