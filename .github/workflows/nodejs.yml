@@ -22,6 +22,8 @@ jobs:
       matrix:
         node-version: [lts/*]
 
+    if: ${{ github.actor != 'dependabot[bot]' }}
+
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}

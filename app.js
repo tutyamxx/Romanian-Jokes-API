@@ -9,6 +9,7 @@ const favicon = require('serve-favicon');
 const cors = require('cors');
 const helmet = require('helmet');
 const magic = require('express-routemagic');
+const statusCode = require('./helpers/statuscode');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -24,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // --| Enable CORS for GET method only
 const corsOptions = {
     origin: '*',
-    optionsSuccessStatus: 200,
+    optionsSuccessStatus: statusCode.STATUS_OK,
     methods: ['GET']
 };
 
@@ -55,7 +56,7 @@ magic.use(app, {
 
 // --| 404 Response
 // eslint-disable-next-line no-unused-vars
-app.use((req, res, next) => res.status(404).json({ message: 'Sorry, can\'t find the page you are looking for 👀' }));
+app.use((req, res, next) => res.status(statusCode.STATUS_NOT_FOUND).json({ message: 'Sorry, can\'t find the page you are looking for 👀' }));
 
 // --| Error handler
 // eslint-disable-next-line no-unused-vars
